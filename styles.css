@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+	/* ---------------------------------------- */
+	/* gradients */
+	/* ---------------------------------------- */
+	--gradientStop1: #1c2c69;
+	--gradientStop2: #571d24;
+	--backgroundGradient: linear-gradient(45deg,
+								var(--gradientStop1),
+								var(--gradientStop2));
+	
+	/* ---------------------------------------- */
+	/* colors  */
+	/* ---------------------------------------- */
+	--borderStroke: #2e2e2e;
+	--borderThin: var(--borderStroke) solid 4px;
+	--borderThick: var(--borderStroke) solid 8px;
+	--borderThinRadius: 8px;
+	--borderThickRadius: 16px;
+	--activeFill: #eedacc;
+	--activeText: black;
+	--inactiveFill: #1d130c;
+	--inactiveText: white;
+	
+	/* ---------------------------------------- */
+	/* fonts */
+	/* ---------------------------------------- */
+	--navFont: monospace;
+	--navPtSize: 16pt;
+
+	/* ---------------------------------------- */
+	/* paddings */
+	/* ---------------------------------------- */
+	--navPadding: 0.25em 2em;
+	--contentViewPadding: 2% 10% 5% 5%;
+
+	/* ---------------------------------------- */
+	/* margins */
+	/* ---------------------------------------- */
+	--navMargin: 0.5em 0 0 0;
+	--contentViewMargin: 0 0 0 5vw;
+	--fragmentViewMargin: 0 2vw 0 0;
+
+	/* ---------------------------------------- */
+	/* transitions */
+	/* ---------------------------------------- */
+	--shortDuration: 500ms;
+	--medDuration: 800ms;
+	--longDuration: 1s;
+	/* ######################################## */
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: fixed no-repeat var(--backgroundGradient);
+}
+
+main {
+	border: var(--borderThick);
+	border-radius: var(--borderThickRadius);
+	background: var(--activeFill);
+	margin-left: 5vw;
+	margin-right: 30vw;
+
+	font-family: monospace;
+	font-size: 12pt;
+}
+
+h1 {
+	margin-left: 2%;
+}
+
+h2 {
+	margin-left: 4%;
+}
+
+p {
+	margin-left: 5%;
+}

@@ -1,0 +1,40 @@
+* {
+	padding: 0;
+}
+
+ul {
+	padding: 1vh 1vw;
+	display: flex;
+	flex-direction: row;
+	gap: 1vw;
+	list-style: none inside;
+}
+
+li {
+	flex-grow: 1;
+	display: flex;
+	border: var(--borderThin);
+	background: var(--inactiveFill);
+
+	transition: background 400ms;
+}
+
+li a {
+	flex-grow: 1;
+	line-height: 3;
+	color: var(--inactiveText);
+	text-decoration: none;
+	text-align: center;
+	font-family: monospace;
+	font-size: 1.2em;
+
+	transition: color 400ms;
+}
+
+li:hover {
+	background: var(--activeFill);
+}
+
+li:hover a {
+	color: var(--activeText);
+}
