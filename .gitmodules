@@ -1,0 +1,3 @@
+[submodule "git-modules/game-of-life"]
+	path = git-modules/game-of-life
+	url = https://github.com/Skrywerbeer/game-of-life

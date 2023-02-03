@@ -4,6 +4,7 @@
   <head>
 	<title>Web Components</title>
 	<link href="styles.css" rel="stylesheet">
+	<link href="webcomponents.css" rel="stylesheet">
 	<script src="components/navbar.js"></script>
   </head>
 
@@ -15,7 +16,14 @@
 	</header>
 
 	<main>
-	  <!-- Content view section -->
+	  <section id="gameOfLife">
+		<script src="./git-modules/game-of-life/gameOfLife.js" defer></script>
+		<h1>Game of Life</h1>
+		<game-of-life></game-of-life>
+		<p>
+		  A game of life web component.
+		</p>
+	  </section>
 	</main>
 
 </html>
