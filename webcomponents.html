@@ -17,13 +17,25 @@
 
 	<main>
 	  <section id="gameOfLife">
-		<script src="./git-modules/game-of-life/gameOfLife.js" defer></script>
+		<script src="./git-modules/game-of-life/game-of-life.js" defer></script>
 		<h1>Game of Life</h1>
-		<game-of-life></game-of-life>
-		<p>
-		  A game of life web component.
+		<game-of-life columns="100" rows="100" timer="stop"></game-of-life>
+		<div id="gameOfLifeControls">
+		  <button id="toggleBtn" type="button">run</button>
+		  <button id="randomBtn" type="button">random</button>
+		</div>
+		<script src="webcomponents_gameOfLife.js"></script>
+	  </section>
+	  <hr>
+	  
+	  <section id="DragableNumber">
+		<script src="./git-modules/dragable-number/dragable-number.js"></script>
+		<h1>Dragable Number</h1>
+		<p>Drag to change 
+			<strong>↦<dragable-number initial="30"></dragable-number></strong>
 		</p>
 	  </section>
+	  <hr>
 	</main>
 
 </html>

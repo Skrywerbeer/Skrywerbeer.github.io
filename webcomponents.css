@@ -1,8 +1,7 @@
 game-of-life {
-	width: 200px;
-	height: 200px;
+	width: 60%;
 	display: block;
-	margin-left: 10%;
+	margin-left: 20%;
 }
 game-of-life::part(cell) {
 
@@ -14,4 +13,48 @@ game-of-life::part(living) {
 
 game-of-life::part(deceased) {
 	background-color: slategray;
+}
+#gameOfLifeControls {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 10%;
+}
+
+#gameOfLifeControls button {
+	margin-top: 1em;
+	width: 10%;
+	background-color: var(--inactiveFill);
+	color: var(--inactiveText);
+	border-radius: 8px;
+	font-family: monospace;
+	transition:
+		background-color 400ms,
+		color 400ms
+	;
+}
+
+#gameOfLifeControls button:hover {
+	background-color: var(--activeFill);
+	color: var(--activeText);
+}
+
+strong {
+	font-size: 20pt;
+}
+
+dragable-number {
+
+}
+
+dragable-number[state="inRange"] {
+	border-right: slategray solid 2px;
+}
+
+dragable-number[state="minClamped"] {
+	border-bottom: crimson solid 2px;
+}
+
+dragable-number[state="maxClamped"] {
+	border-top: crimson solid 2px;
 }

@@ -11,5 +11,7 @@
 	},
 	"files": [
 		"components/navbar.ts",
+
+		"webcomponents_gameOfLife.ts",
 	]
 }
