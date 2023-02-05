@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	 viewBox="-50 -50 100 100"
+	 id="root">
+  <style>
+	#tri {
+		opacity: 0.8;
+	}
+	use[href="#tri"] {
+		fill: transparent;
+		--col1: blueviolet;
+		--col2: dodgerblue;
+	}
+  </style>
+  
+  <defs>
+	<path id="infinity"
+		  d="m0-2.5958e-8s16.737-18.96 27.28-14.465c10.544 4.4942 10.543 24.437 0 28.931-10.543 4.4937-44.016-33.425-54.561-28.931-10.544 4.4945-10.543 24.437 0 28.931 10.543 4.4941 27.28-14.465 27.28-14.465z" >
+	</path>
+	<animateMotion
+	  class="motionAnim"
+	  begin="indefinte"
+	  dur="3s"
+	  rotate="auto"
+	  repeatCount="indefinite"
+	  ><mpath href="#infinity" />
+	</animateMotion>
+	<animate
+	  class="colorAnim"
+	  attributeName="fill"
+	  dur="2s"
+	  values="magenta; cyan; magenta"
+	  repeatCount="indefinite"
+	  begin="indefinite"
+	  />
+  </defs>
+  <symbol id="tri" viewBox="0 0 100 100">
+	<circle r="40" cx="50" cy="50" />
+  </symbol>
+  <g id="elements" >
+	<animateTransform
+	  attributeName="transform"
+	  type="rotate"
+	  values="0 0 0; -270 0 0; 0 0 0; 270 0 0; 0 0 0"
+	  dur="10s"
+	  begin="400ms"
+	  repeatCount="indefinite"
+	  />
+  </g>
+  <script>
+	<![CDATA[
+		function newSymbol() {
+			const use = document.createElementNS("http://www.w3.org/2000/svg",
+												 "use");
+			use.setAttributeNS(null,
+							   "href",
+							   "#tri");
+			use.setAttributeNS(null,
+							   "width",
+							   "10");
+			use.setAttributeNS(null,
+							   "height",
+							   "10");
+			use.setAttributeNS(null,
+							   "transform",
+							   "translate(-5 -5)");
+			return use;
+		};
+		const root = document.getElementById("root");
+		const elements = document.getElementById("elements");
+		for (let i = 0; i < 16; ++i) {
+			const use = newSymbol();
+			const anim = document.querySelector(".motionAnim").cloneNode(true);
+			const animColor = document.querySelector(".colorAnim").cloneNode(true);
+			use.append(anim, animColor);
+			elements.append(use);
+			anim.beginElementAt(0.2*i);
+			animColor.beginElementAt(0.2*i);
+		}
+	]]>
+  </script>
+</svg>

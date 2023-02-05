@@ -1,0 +1,5 @@
+#loadingIndicators div {
+	display: grid;
+	grid-template-columns: repeat(5, 80px);
+	grid-template-rows: 80px;
+}
