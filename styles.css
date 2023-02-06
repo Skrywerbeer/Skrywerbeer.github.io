@@ -83,6 +83,20 @@ p {
 	margin-left: 5%;
 }
 
+a {
+	color: black;
+	padding-left: 0.2em;
+	border-left: var(--borderThin);
+	transition:
+		background-color 400ms;
+}
+a:hover {
+	outline: var(--borderThin);
+	background-color: var(--inactiveFill);
+	color: var(--inactiveText);
+}
+
+
 button {
 	margin-top: 1em;
 	width: 10%;
