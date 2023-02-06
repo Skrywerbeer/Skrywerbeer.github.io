@@ -11,7 +11,8 @@
 	},
 	"files": [
 		"components/navbar.ts",
-
+		"components/slideshow.ts",
+		"gallery_loadingIndicators.ts",
 		"webcomponents_gameOfLife.ts",
 	]
 }

@@ -1,5 +1,18 @@
 #loadingIndicators div {
-	display: grid;
-	grid-template-columns: repeat(5, 80px);
-	grid-template-rows: 80px;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: space-around;
+}
+
+#loadingIndicators object[is="slide-show"] {
+	width: 30%;
+	min-width: 30%;
+	height: 30%;
+	min-height: 30%;
+}
+
+#loadingIndicators button {
+	height: 20%;
+	align-self: center;
 }
