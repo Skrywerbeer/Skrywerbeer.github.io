@@ -1,5 +1,9 @@
+h1 {
+	text-align: center;
+}
+
 game-of-life {
-	width: 60%;
+	width: 30%;
 	display: block;
 	margin-left: 20%;
 }

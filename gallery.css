@@ -1,11 +1,3 @@
-h1 {
-	text-align: center;
-}
-h1::first-letter {
-	font-size: 1.5em;
-	font-family: serif;
-}
-
 #loadingIndicators div {
 	display: flex;
 	flex-direction: row;
