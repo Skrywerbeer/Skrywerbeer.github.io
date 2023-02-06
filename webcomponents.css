@@ -21,24 +21,6 @@ game-of-life::part(deceased) {
 	gap: 10%;
 }
 
-#gameOfLifeControls button {
-	margin-top: 1em;
-	width: 10%;
-	background-color: var(--inactiveFill);
-	color: var(--inactiveText);
-	border-radius: 8px;
-	font-family: monospace;
-	transition:
-		background-color 400ms,
-		color 400ms
-	;
-}
-
-#gameOfLifeControls button:hover {
-	background-color: var(--activeFill);
-	color: var(--activeText);
-}
-
 strong {
 	font-size: 20pt;
 }

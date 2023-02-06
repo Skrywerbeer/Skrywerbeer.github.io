@@ -78,3 +78,21 @@ h2 {
 p {
 	margin-left: 5%;
 }
+
+button {
+	margin-top: 1em;
+	width: 10%;
+	background-color: var(--inactiveFill);
+	color: var(--inactiveText);
+	border-radius: 8px;
+	font-family: monospace;
+	transition:
+		background-color 400ms,
+		color 400ms
+	;
+}
+
+button:hover {
+	background-color: var(--activeFill);
+	color: var(--activeText);
+}
