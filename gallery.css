@@ -1,3 +1,11 @@
+h1 {
+	text-align: center;
+}
+h1::first-letter {
+	font-size: 1.5em;
+	font-family: serif;
+}
+
 #loadingIndicators div {
 	display: flex;
 	flex-direction: row;
@@ -10,9 +18,12 @@
 	min-width: 30%;
 	height: 30%;
 	min-height: 30%;
+	border: double black 12px;
+	border-radius: 4px;
 }
 
-#loadingIndicators button {
-	height: 20%;
-	align-self: center;
+#loadingIndicators div button {
+	margin-top: 15%;
+	margin-bottom: 15%;
+	font-size: 3em;
 }
