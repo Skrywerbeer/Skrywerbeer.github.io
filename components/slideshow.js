@@ -16,14 +16,12 @@ class SlideShow extends HTMLObjectElement {
         if (slideURLs)
             for (const slide of slideURLs)
                 slides.push(slide[0]);
-        console.log(slides);
         return slides;
     }
     slides = [];
     currentIndex = 0;
     constructor() {
         super();
-        console.log("create slide-show");
     }
     connectedCallback() {
         this.slides = this.latestSlides;
