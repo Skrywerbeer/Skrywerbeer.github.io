@@ -96,6 +96,9 @@ a:hover {
 	color: var(--inactiveText);
 }
 
+hr {
+	margin: 1% 10%;
+}
 
 button {
 	margin-top: 1em;
