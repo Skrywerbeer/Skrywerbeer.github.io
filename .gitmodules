@@ -4,3 +4,6 @@
 [submodule "git-modules/dragable-number"]
 	path = git-modules/dragable-number
 	url = https://github.com/Skrywerbeer/dragable-number
+[submodule "git-modules/sparkline"]
+	path = git-modules/sparkline
+	url = https://github.com/Skrywerbeer/sparkline
