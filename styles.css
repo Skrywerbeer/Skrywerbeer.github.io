@@ -66,6 +66,13 @@ main {
 	font-family: monospace;
 	font-size: 12pt;
 }
+@media screen and (max-width: 800px) {
+	main {
+		margin-right: 0vw;
+		border-right: none;
+		font-size: 12pt;
+	}
+}
 
 h1 {
 	text-align: center;
