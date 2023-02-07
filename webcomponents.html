@@ -45,13 +45,29 @@
 	  </section>
 	  <hr>
 	  <section id="SparkLine">
+		<script src="./git-modules/sparkline/sparkline.js"></script>
 		<h2>
 		  <a href="https://github.com/Skrywerbeer/sparkline">
 			spark-line ⤴
 		  </a>
 		</h2>
-	  </section>
-	</main>
-	
+		<p>
+		  <style>
+			spark- {font-size: 2em;}
+			spark-::part(even) {fill: royalblue;}
+			spark-::part(odd) {fill: dodgerblue;}
+			spark-::part(element):hover {fill: crimson;}
+		  </style>
+		  <spark- points="0.2 0.4 0.6 0.9"></spark->
+		  Clearly the trend is upward<br>
+		  <spark- points="0.8 0.5 0.5 0.3 0.3 0.1"></spark->
+		  But trends can be deceiving.
+			
+		</p>
 
+	  </section>
+	  <p style="font-size: 48pt; font-weight: bold; text-align: center">
+		❁ ⚘⚘⚘ ❁
+	  </p>
+	</main>
 </html>
