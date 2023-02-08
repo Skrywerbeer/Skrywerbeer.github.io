@@ -59,7 +59,8 @@ body {
 main {
 	border: var(--borderThick);
 	border-radius: var(--borderThickRadius);
-	background: var(--activeFill);
+	/* background: var(--activeFill); */
+	background: lemonchiffon;
 	margin-left: 5vw;
 	margin-right: 30vw;
 
