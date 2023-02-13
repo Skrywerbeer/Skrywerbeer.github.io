@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	 width="512" height="512"
+	 viewBox="0 0 512 512">
+  
+  <style>
+	#block {
+		/* fill: purple; */
+	}
+  </style>
+  <defs>
+	<rect id="block"
+		  width="200" height="200"
+		  x="-100" y="-100"
+		  ry="50"
+		  />
+	<path id="toTop"
+		  d="M0 0 v-512"
+		  />
+  </defs>
+  
+  <g opacity="0">
+	<animate
+	  id="fadeIn"
+	  attributeName="opacity"
+	  from="0"
+	  to="1"
+	  dur="500ms"
+	  begin="0s"
+	  fill="freeze"
+	  />
+	<use href="#block"
+		 x="156" y="412"
+		 >
+	  <animateMotion
+		id="first"
+		dur="2s"
+		begin="fadeIn.end"
+		repeatCount="indefinite"
+		repeatDur="30s"
+		><mpath href="#toTop" /></animateMotion>
+	  <animate
+		attributeName="fill"
+		calcMode="discrete"
+		values="royalblue; purple; crimson"
+		dur="3s"
+		begin="-1s"
+		repeatCount="indefinite"
+		/>
+	  <!-- <animate -->
+	  <!-- 	attributeName="opacity" -->
+	  <!-- 	from="1" -->
+	  <!-- 	to="0" -->
+	  <!-- 	dur="2s" -->
+	  <!-- 	begin="first.begin; first.repeat" -->
+	  <!-- 	fill="freeze" -->
+	  <!-- 	/> -->
+	</use>
+	<use href="#block"
+		 x="356" y="412"
+		 >
+	  <animateMotion
+		id="second"
+		dur="2s"
+		begin="first.begin + 1s; first.repeat + 1s"
+		><mpath href="#toTop" /></animateMotion>
+	  <animate
+		attributeName="fill"
+		calcMode="discrete"
+		values="royalblue; purple; crimson"
+		dur="3s"
+		begin="0s"
+		repeatCount="indefinite"
+		/>
+	  <!-- <animate -->
+	  <!-- 	attributeName="opacity" -->
+	  <!-- 	from="0.8" -->
+	  <!-- 	to="0" -->
+	  <!-- 	dur="2s" -->
+	  <!-- 	begin="second.begin" -->
+	  <!-- 	fill="freeze" -->
+	  <!-- 	/> -->
+	</use>
+  </g>
+</svg>
