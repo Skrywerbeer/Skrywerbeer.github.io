@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	 viewBox="-50 -50 100 100"
+	 >
+  <style>
+	#background {
+		fill: #222222;
+	}
+	circle {
+		filter: blur(1px);
+		fill: ivory;
+	}
+  </style>
+  <defs>
+	<path id="arc-ccw"
+		  d="M 25.891 15
+			 A 40 40 0 0 0 25.891 -15" />
+	<path id="arc-cw"
+		  d="M 25.891 -15
+			 A 40 40 0 0 1 25.891 15 " />
+	<circle id="fidget" r="10" >
+	  <animateMotion
+		id="cwSweep"
+		begin="0s; ccwSweep.end + 20ms"
+		dur="1s"
+		repeatCount="1"
+		fill="freeze"
+		><mpath href="#arc-cw" /></animateMotion>
+	  <animateMotion
+		id="ccwSweep"
+		begin="cwSweep.end + 20ms"
+		dur="1s"
+		repeatCount="1"
+		fill="freeze"
+		><mpath href="#arc-ccw" /></animateMotion>
+	  <animate
+		attributeName="opacity"
+		from="0.1"
+		to="0.8"
+		dur="500ms"
+		begin="cwSweep.begin"
+		fill="freeze"
+		/>
+	  <animate
+		attributeName="opacity"
+		from="0.8"
+		to="0.1"
+		dur="1s"
+		begin="ccwSweep.begin"
+		fill="freeze"
+		/>
+	</circle>
+  </defs>
+  <rect id="background" width="100%" height="100%" x="-50" y="-50" />
+  <g>
+	<use href="#fidget" />
+	<use href="#fidget" transform="rotate(72 0 0)" />
+	<use href="#fidget" transform="rotate(144 0 0)" />
+	<use href="#fidget" transform="rotate(216 0 0)" />
+	<use href="#fidget" transform="rotate(288 0 0)" />
+	<animateTransform
+	  id="rotation"
+	  attributeName="transform"
+	  type="rotate"
+	  from="0 0 0"
+	  to="360 0 0"
+	  dur="16s"
+	  begin="0s"
+	  repeatCount="indefinite"
+	  />
+  </g>
+
+</svg>
