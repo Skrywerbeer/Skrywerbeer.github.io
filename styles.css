@@ -69,8 +69,9 @@ main {
 }
 @media screen and (max-width: 800px) {
 	main {
+		margin-left: 0vw;
 		margin-right: 0vw;
-		border-right: none;
+		border-left: none;
 		font-size: 12pt;
 	}
 }
@@ -88,6 +89,7 @@ h2 {
 }
 
 p {
+	margin-right: 3%;
 	margin-left: 5%;
 }
 
