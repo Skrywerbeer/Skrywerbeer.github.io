@@ -1,78 +1,45 @@
-<!DOCTYPE html>
+<h1>Web Components</h1>
+<section id="gameOfLife">
+  <h2><a href="https://github.com/Skrywerbeer/game-of-life">
+	  game-of-life ⤴
+	</a>
+  </h2>
+  <game-of-life columns="100" rows="100" timer="stop"></game-of-life>
+  <div id="gameOfLifeControls">
+	<button id="toggleBtn" type="button">run</button>
+	<button id="randomBtn" type="button">random</button>
+  </div>
+  <!-- <script src="webcomponents_gameOfLife.js"></script> -->
+</section>
+<hr>
 
-<html>
-  <head>
-	<title>Web Components</title>
+<section id="DragableNumber">
+  <h2>
+	<a href="https://github.com/Skrywerbeer/dragable-number">
+	  dragable-number ⤴
+	</a>
+  </h2>
+  <p>Drag to change 
+	<strong>↦<dragable-number initial="30"></dragable-number></strong>
+  </p>
+</section>
+<hr>
+<section id="SparkLine">
 
-	<meta charset="utf-8" />
-	<meta name="author" content="Johan Grobler" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <h2>
+	<a href="https://github.com/Skrywerbeer/sparkline">
+	  spark-line ⤴
+	</a>
+  </h2>
+  <p>
+	<spark- points="0.2 0.4 0.6 0.9"></spark->
+	Clearly the trend is upward<br>
+	<spark- points="0.8 0.5 0.5 0.3 0.3 0.1"></spark->
+	But trends can be deceiving.
 	
-	<link href="styles.css" rel="stylesheet">
-	<link href="webcomponents.css" rel="stylesheet">
-	<link href="./assets/favicon.svg" rel="icon">
-	<script src="components/navbar.js"></script>
-  </head>
+  </p>
+</section>
+<p style="font-size: 48pt; font-weight: bold; text-align: center">
+  ❁ ⚘⚘⚘ ❁
+</p>
 
-  <body>
-	<header>
-	  <nav>
-		<nav-bar></nav-bar>
-	  </nav>
-	</header>
-
-	<main>
-	  <h1>Web Components</h1>
-	  <section id="gameOfLife">
-		<script src="./git-modules/game-of-life/game-of-life.js" defer></script>
-		<h2><a href="https://github.com/Skrywerbeer/game-of-life">
-			game-of-life ⤴
-		  </a>
-		</h2>
-		<game-of-life columns="100" rows="100" timer="stop"></game-of-life>
-		<div id="gameOfLifeControls">
-		  <button id="toggleBtn" type="button">run</button>
-		  <button id="randomBtn" type="button">random</button>
-		</div>
-		<script src="webcomponents_gameOfLife.js"></script>
-	  </section>
-	  <hr>
-	  
-	  <section id="DragableNumber">
-		<script src="./git-modules/dragable-number/dragable-number.js"></script>
-		<h2>
-		  <a href="https://github.com/Skrywerbeer/dragable-number">
-			dragable-number ⤴
-		  </a>
-		</h2>
-		<p>Drag to change 
-			<strong>↦<dragable-number initial="30"></dragable-number></strong>
-		</p>
-	  </section>
-	  <hr>
-	  <section id="SparkLine">
-		<script src="./git-modules/sparkline/sparkline.js"></script>
-		<h2>
-		  <a href="https://github.com/Skrywerbeer/sparkline">
-			spark-line ⤴
-		  </a>
-		</h2>
-		<p>
-		  <style>
-			spark- {font-size: 2em;}
-			spark-::part(even) {fill: royalblue;}
-			spark-::part(odd) {fill: dodgerblue;}
-			spark-::part(element):hover {fill: crimson;}
-		  </style>
-		  <spark- points="0.2 0.4 0.6 0.9"></spark->
-		  Clearly the trend is upward<br>
-		  <spark- points="0.8 0.5 0.5 0.3 0.3 0.1"></spark->
-		  But trends can be deceiving.
-			
-		</p>
-	  </section>
-	  <p style="font-size: 48pt; font-weight: bold; text-align: center">
-		❁ ⚘⚘⚘ ❁
-	  </p>
-	</main>
-</html>

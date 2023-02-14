@@ -1,7 +1,3 @@
-h1 {
-	text-align: center;
-}
-
 game-of-life {
 	width: 30%;
 	display: block;
@@ -44,3 +40,8 @@ dragable-number[state="minClamped"] {
 dragable-number[state="maxClamped"] {
 	border-top: crimson solid 2px;
 }
+
+spark- {font-size: 2em;}
+spark-::part(even) {fill: royalblue;}
+spark-::part(odd) {fill: dodgerblue;}
+spark-::part(element):hover {fill: crimson;}
