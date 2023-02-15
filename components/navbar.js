@@ -1,5 +1,18 @@
 "use strict";
 ;
+class NavBarLink extends HTMLAnchorElement {
+    constructor() {
+        super();
+        this.addEventListener("click", (event) => {
+            event.preventDefault();
+            const page = new URL(this.href).pathname;
+            history.pushState(null, ",", `?page=${page}`);
+        });
+    }
+    connectedCallback() {
+    }
+}
+customElements.define("nav-bar-link", NavBarLink, { extends: "a" });
 class NavBar extends HTMLElement {
     static MAIN_LINKS = [
         { text: "Home", href: "./home.html" },
@@ -18,6 +31,8 @@ class NavBar extends HTMLElement {
     }
     connectedCallback() {
         (this.shadowRoot).append(this.createLinkList(NavBar.MAIN_LINKS));
+        window.addEventListener("popstate", this.loadFragment);
+        window.addEventListener("load", this.loadFragment);
     }
     attachStylesheet() {
         if (this.stylesheet) {
@@ -30,24 +45,10 @@ class NavBar extends HTMLElement {
         }
     }
     createLink(link) {
-        const a = document.createElement("a");
+        const a = document.createElement("a", { is: "nav-bar-link" });
         a.innerText = link.text;
         a.href = link.href;
-        a.onclick = () => false;
-        const navBar = this;
-        a.addEventListener("click", function (event) {
-            console.log(navBar);
-            console.log(`you clicked on: ${this.innerText} ` +
-                `linking to: ${this.href}`);
-            fetch(`${this.href}`)
-                .then((response) => {
-                response.text()
-                    .then((txt) => {
-                    navBar.loadContent(txt);
-                    console.log(txt);
-                });
-            });
-        });
+        a.addEventListener("click", this.loadFragment);
         return a;
     }
     createLinkList(links) {
@@ -61,12 +62,18 @@ class NavBar extends HTMLElement {
         ul.append(...listItems);
         return ul;
     }
-    loadContent(fragment) {
-        const view = document.getElementById("contentView");
-        if (view)
-            view.innerHTML = fragment;
-        else
-            throw new Error("nav-bar: Could not find contentView.");
+    loadFragment() {
+        const docURL = new URL(document.URL);
+        const fragmentURL = docURL.searchParams.get("page");
+        if (fragmentURL === null)
+            throw new Error("nav-bar: document url misformed.");
+        fetch(fragmentURL).then((response) => {
+            response.text().then((fragment) => {
+                const view = document.getElementById("contentView");
+                if (view)
+                    view.innerHTML = fragment;
+            });
+        });
     }
 }
 customElements.define("nav-bar", NavBar);

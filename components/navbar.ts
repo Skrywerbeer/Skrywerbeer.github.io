@@ -3,6 +3,20 @@ interface Link {
 	href: string;
 };
 
+class NavBarLink extends HTMLAnchorElement {
+	constructor() {
+		super();
+		this.addEventListener("click", (event) => {
+			event.preventDefault();
+			const page = new URL(this.href).pathname;
+			history.pushState(null, ",", `?page=${page}`);
+		})
+	}
+	connectedCallback() {
+	}
+}
+customElements.define("nav-bar-link", NavBarLink, {extends: "a"});
+
 class NavBar extends HTMLElement {
 	private static MAIN_LINKS: Array<Link> = [
 		{text: "Home", href: "./home.html"},
@@ -21,6 +35,9 @@ class NavBar extends HTMLElement {
 	}
 	private connectedCallback(): void {
 		(this.shadowRoot!).append(this.createLinkList(NavBar.MAIN_LINKS));
+
+		window.addEventListener("popstate", this.loadFragment);
+		window.addEventListener("load", this.loadFragment);
 	}
 	private attachStylesheet(): void {
 		if (this.stylesheet) {
@@ -33,22 +50,10 @@ class NavBar extends HTMLElement {
 		}
 	}
 	private createLink(link: Link) {
-		const a = document.createElement("a");
+		const a = document.createElement("a", {is: "nav-bar-link"});
 		a.innerText = link.text;
 		a.href = link.href;
-		a.onclick = () => false;
-		const navBar = this;
-		a.addEventListener("click", function(event) {
-			console.log(navBar);
-			console.log(`you clicked on: ${this.innerText} ` +
-				`linking to: ${this.href}`);
-			fetch(`${this.href}`)
-				.then((response) => {
-					response.text()
-						.then((txt) => {navBar.loadContent(txt)
-										console.log(txt)});
-				});
-		});
+		a.addEventListener("click", this.loadFragment);
 		return a;
 	}
 	private createLinkList(links: Array<Link>): HTMLUListElement {
@@ -62,13 +67,21 @@ class NavBar extends HTMLElement {
 		ul.append(...listItems);
 		return ul;
 	}
-	private loadContent(fragment: string): void {
-		const view = document.getElementById("contentView");
-		if (view)
-			view.innerHTML = fragment;
-		else
-			throw new Error("nav-bar: Could not find contentView.");
+	private loadFragment(): void {
+		// TODO: add error and timeout handling.
+		const docURL = new URL(document.URL);
+		const fragmentURL = docURL.searchParams.get("page");
+		if (fragmentURL === null)
+			throw new Error("nav-bar: document url misformed.");
+		fetch(fragmentURL).then((response) => {
+			response.text().then((fragment) => {
+				const view = document.getElementById("contentView");
+				if (view)
+					view.innerHTML = fragment;
+			});
+		})
 	}
+
 }
 
 customElements.define("nav-bar", NavBar);
