@@ -21,6 +21,7 @@ class NavBar extends HTMLElement {
         { text: "Web Apps", href: "?page=webapps.html" },
         { text: "Gallery", href: "?page=gallery.html" },
         { text: "Mathematics", href: "?page=mathematics.html" },
+        { text: "Links", href: "?page=links.html" },
         { text: "About", href: "?page=about.html" },
     ];
     stylesheet = document.createElement("link");

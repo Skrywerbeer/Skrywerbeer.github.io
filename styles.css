@@ -95,6 +95,17 @@ p {
 	margin-left: 5%;
 }
 
+dt {
+	font-size: 1.5em;
+	margin: 1em;
+	margin-left: 4%;
+}
+
+dd {
+	margin-right: 3%;
+	margin-left: 5%;
+}
+
 a {
 	color: black;
 	padding-left: 0.2em;
