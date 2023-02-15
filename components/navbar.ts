@@ -8,8 +8,8 @@ class NavBarLink extends HTMLAnchorElement {
 		super();
 		this.addEventListener("click", (event) => {
 			event.preventDefault();
-			const page = new URL(this.href).pathname;
-			history.pushState(null, ",", `?page=${page}`);
+			const page = new URL(this.href).search;
+			history.pushState(null, ",", `${page}`);
 		})
 	}
 	connectedCallback() {
@@ -19,13 +19,13 @@ customElements.define("nav-bar-link", NavBarLink, {extends: "a"});
 
 class NavBar extends HTMLElement {
 	private static MAIN_LINKS: Array<Link> = [
-		{text: "Home", href: "./home.html"},
-		{text: "Projects", href: "./projects.html"},
-		{text: "Web Components", href: "./webcomponents.html"},
-		{text: "Web Apps", href: "./webapps.html"},
-		{text: "Gallery", href: "./gallery.html"},
-		{text: "Mathematics", href: "./mathematics.html"},
-		{text: "About", href: "./about.html"},
+		{text: "Home", href: "?page=home.html"},
+		{text: "Projects", href: "?page=projects.html"},
+		{text: "Web Components", href: "?page=webcomponents.html"},
+		{text: "Web Apps", href: "?page=webapps.html"},
+		{text: "Gallery", href: "?page=gallery.html"},
+		{text: "Mathematics", href: "?page=mathematics.html"},
+		{text: "About", href: "?page=about.html"},
 	];
 	private stylesheet: HTMLLinkElement = document.createElement("link");
 	constructor() {
