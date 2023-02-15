@@ -67,12 +67,21 @@ class NavBar extends HTMLElement {
         const fragmentURL = docURL.searchParams.get("page");
         if (fragmentURL === null)
             throw new Error("nav-bar: document url misformed.");
-        fetch(fragmentURL).then((response) => {
-            response.text().then((fragment) => {
-                const view = document.getElementById("contentView");
-                if (view)
-                    view.innerHTML = fragment;
-            });
+        fetch(fragmentURL)
+            .then((response) => {
+            if (!response.ok)
+                throw new Error("nav-bar: Failed to fetch fragment, " +
+                    `response returned ${response.status}`);
+            return response.text();
+        })
+            .then((fragment) => {
+            const view = document.getElementById("contentView");
+            if (view)
+                view.innerHTML = fragment;
+        })
+            .catch((error) => {
+            console.error(`nav-bar: ${error} happened while ` +
+                `fetching: ${fragmentURL}`);
         });
     }
 }
