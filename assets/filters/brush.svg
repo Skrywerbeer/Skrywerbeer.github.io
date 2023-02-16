@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+	<filter id="brush" primitiveUnits="objectBoundingBox">
+	  <feTurbulence
+		baseFrequency="0.1 50"
+		numOctaves="5"
+		/>
+	  <feColorMatrix
+		type="matrix"
+		values="1    0    0    0    0
+				0    0    0    0    0
+				0    0    0    0    0
+				0    0    0    0    1"
+		/>
+	  <feComponentTransfer>
+		<feFuncR
+		  type="discrete"
+		  tableValues="0 1 1 1 1"
+		  />
+	  </feComponentTransfer>
+	  <feColorMatrix
+		type="matrix"
+		values="1 0 0 0 0
+				0 0 0 0 0
+				0 0 0 0 0
+				1 0 0 0 0"
+		result="lines"
+		/>
+	  <feComposite
+		in="SourceGraphic"
+		in2="lines"
+		operator="in"
+		/>
+	</filter>
+  </defs>
+</svg>
