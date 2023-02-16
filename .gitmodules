@@ -7,3 +7,6 @@
 [submodule "git-modules/sparkline"]
 	path = git-modules/sparkline
 	url = https://github.com/Skrywerbeer/sparkline
+[submodule "git-modules/StaffTrainer"]
+	path = git-modules/StaffTrainer
+	url = https://github.com/Skrywerbeer/StaffTrainer.git
