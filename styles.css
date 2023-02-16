@@ -152,3 +152,9 @@ button:hover {
 	background-color: var(--activeFill);
 	color: var(--activeText);
 }
+
+iframe {
+	margin: 5% 10%;
+	width: 80%;
+	min-height: 50vh;
+}
