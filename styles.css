@@ -95,6 +95,10 @@ p {
 	margin-left: 5%;
 }
 
+code {
+	background: lightgray;
+}
+
 dt {
 	font-size: 1.2em;
 	margin: 1em;
@@ -104,6 +108,14 @@ dt {
 dd {
 	margin-right: 3%;
 	margin-left: 8%;
+}
+
+ul {
+	margin-left: 2%;
+}
+
+li {
+	margin-left: 4%;
 }
 
 a {
