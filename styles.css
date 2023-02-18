@@ -58,6 +58,12 @@ body {
 	background: fixed no-repeat var(--backgroundGradient);
 }
 
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
 main {
 	border: var(--borderThick);
 	border-radius: var(--borderThickRadius);
@@ -76,6 +82,16 @@ main {
 		border-left: none;
 		font-size: 12pt;
 	}
+}
+
+section {
+	
+}
+
+section object {
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
 }
 
 h1 {
