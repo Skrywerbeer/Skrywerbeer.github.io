@@ -3,7 +3,7 @@ interface Link {
 	href: string;
 };
 
-class NavBarLink extends HTMLAnchorElement {
+class InternalLink extends HTMLAnchorElement {
 	constructor() {
 		super();
 		this.addEventListener("click", (event) => {
@@ -13,9 +13,10 @@ class NavBarLink extends HTMLAnchorElement {
 		})
 	}
 	connectedCallback() {
+		this.addEventListener("click", (document.querySelector("nav-bar") as NavBar).loadFragment);
 	}
 }
-customElements.define("nav-bar-link", NavBarLink, {extends: "a"});
+customElements.define("internal-link", InternalLink, {extends: "a"});
 
 class NavBar extends HTMLElement {
 	private static MAIN_LINKS: Array<Link> = [
@@ -51,10 +52,10 @@ class NavBar extends HTMLElement {
 		}
 	}
 	private createLink(link: Link) {
-		const a = document.createElement("a", {is: "nav-bar-link"});
+		const a = document.createElement("a", {is: "internal-link"});
 		a.innerText = link.text;
 		a.href = link.href;
-		a.addEventListener("click", this.loadFragment);
+		// a.addEventListener("click", this.loadFragment);
 		return a;
 	}
 	private createLinkList(links: Array<Link>): HTMLUListElement {
@@ -68,7 +69,7 @@ class NavBar extends HTMLElement {
 		ul.append(...listItems);
 		return ul;
 	}
-	private loadFragment(): void {
+	public loadFragment(): void {
 		// TODO: add error and timeout handling.
 		const docURL = new URL(document.URL);
 		const fragmentURL = docURL.searchParams.get("page");

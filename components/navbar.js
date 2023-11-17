@@ -1,6 +1,6 @@
 "use strict";
 ;
-class NavBarLink extends HTMLAnchorElement {
+class InternalLink extends HTMLAnchorElement {
     constructor() {
         super();
         this.addEventListener("click", (event) => {
@@ -10,9 +10,10 @@ class NavBarLink extends HTMLAnchorElement {
         });
     }
     connectedCallback() {
+        this.addEventListener("click", document.querySelector("nav-bar").loadFragment);
     }
 }
-customElements.define("nav-bar-link", NavBarLink, { extends: "a" });
+customElements.define("internal-link", InternalLink, { extends: "a" });
 class NavBar extends HTMLElement {
     static MAIN_LINKS = [
         { text: "Home", href: "?page=home.html" },
@@ -46,10 +47,9 @@ class NavBar extends HTMLElement {
         }
     }
     createLink(link) {
-        const a = document.createElement("a", { is: "nav-bar-link" });
+        const a = document.createElement("a", { is: "internal-link" });
         a.innerText = link.text;
         a.href = link.href;
-        a.addEventListener("click", this.loadFragment);
         return a;
     }
     createLinkList(links) {
