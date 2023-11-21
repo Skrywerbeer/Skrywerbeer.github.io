@@ -116,9 +116,10 @@ p {
 }
 
 math {
+	font-size: 1.2em;
 	margin-left: 8%;
-
-;
+	math-style: normal;
+	display: block;
 }
 
 code {

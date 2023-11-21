@@ -1,0 +1,383 @@
+<!-- MATHEMATICAL ITALIC SMALL MU -->
+<!-- MATHEMATICAL DOUBLE-STRUCK SMALL D -->
+
+<h2>Rising On A Circle Falling On A Hyperbole.</h2>
+<h3>Model of an object during accent with resistance</h3>
+<p>
+  Consider a cannonball shot straigt up in to the air. It can be anything else
+  but cannonballs is more traditional than shooting pies. If the air resitance
+  is proportional to the square of the instantanuous speed, then a simple model
+  for the system is.
+  <math display="block">
+	<mi>m</mi>
+	<mfrac>
+	  <mrow><mo>𝕕</mo><mi>v</mi></mrow>
+	  <mrow><mo>𝕕</mo><mi>t</mi></mrow>
+	</mfrac>
+	<mo>=</mo>
+	<mo>-</mo>
+	<mo>(</mo>
+	<mi>m</mi><mi>g</mi>
+	<mo>+</mo>
+	<mi>k</mi><msup>
+	  <mi>v</mi>
+	  <mn>2</mn>
+	</msup>
+	<mo>)</mo>
+  </math>
+</p>
+<p>
+  With a small simplifing substitution.
+<math display="block">
+  <mi>𝜇</mi>
+  <mo>=</mo>
+  <mfrac>
+	<mi>k</mi>
+	<mi>m</mi>
+  </mfrac>
+</math>
+</p>
+
+<p>
+  And rearranging. A trivial integral as long as you remember your
+  trigonometric substitutions.
+<math display="block">
+  <mfrac>
+	<mrow><mo>𝕕</mo><mi>v</mi></mrow>
+	<mrow>
+	  <mi>g</mi>
+	  <mo>+</mo>
+	  <mi>𝜇</mi><msup>
+		<mi>v</mi>
+		<mn>2</mn>
+	  </msup>
+	</mrow>
+  </mfrac>
+  <mo>=</mo>
+  <mo>-</mo>
+  <mo>𝕕</mo>
+  <mi>t</mi>
+</math>
+</p>
+<p>
+  Namely.
+  <math display="block">
+	<msqrt>
+	  <mfrac>
+		<mi>g</mi>
+		<mi>𝜇</mi>
+	  </mfrac>
+	</msqrt>
+	<mo>tan</mo>
+	<mo>(</mo>
+	<mi>w</mi>
+	<mo>)</mo>
+	<mo>=</mo>
+	<mi>v</mi>
+  </math>
+  And the matching differential.
+  <math display="block">
+  <msqrt>
+	<mfrac>
+	  <mi>g</mi>
+	  <mi>𝜇</mi>
+	</mfrac>
+  </msqrt>
+  <msup>
+	<mo>sec</mo>
+	<mn>2</mn>
+  </msup>
+  <mo>(</mo>
+  <mi>w</mi>
+  <mo>)</mo>
+  <mo>𝕕</mo>
+  <mi>w</mi>
+  <mo>=</mo>
+  <mo>𝕕</mo>
+  <mi>v</mi>
+</math>
+</p>
+<p>
+  Substituting in, solving the integral and substituting back.
+  <math display="block">
+	<mfrac>
+	  <mn>1</mn>
+	  <msqrt>
+		<mi>𝜇</mi>
+		<mi>g</mi>
+	  </msqrt>
+	</mfrac>
+	<mo largeop="true">∫</mo>
+	<mo>𝕕</mo>
+	<mi>w</mi>
+	<mo>=</mo>
+	<mfrac>
+	  <mn>1</mn>
+	  <msqrt>
+		<mi>𝜇</mi>
+		<mi>g</mi>
+	  </msqrt>
+	</mfrac>
+	<mo>arctan</mo>
+	<mo>(</mo>
+	<mi>v</mi>
+	<msqrt>
+	  <mfrac>
+		<mi>𝜇</mi>
+		<mi>g</mi>
+	  </mfrac>
+	</msqrt>
+	<mo>)</mo>
+	<mo>=</mo>
+	<mi>C</mi>
+	<mo>-</mo>
+	<mi>t</mi>
+  </math>
+</p>
+
+<p>
+  And finally solving for the speed.
+  <math display="block">
+	<mi>v</mi>
+	<mo>(</mo>
+	<mi>t</mi>
+	<mo>)</mo>
+	<mo>=</mo>
+	<msqrt>
+	  <mfrac>
+		<mi>g</mi>
+		<mi>𝜇</mi>
+	  </mfrac>
+	</msqrt>
+	<mo>tan</mo>
+	<mo>(</mo>
+	<msub>
+	  <mi>C</mi>
+	  <mn>0</mn>
+	</msub>
+	<mo>-</mo>
+	<mi>t</mi>
+	<msqrt>
+	  <mi>𝜇</mi>
+	  <mi>g</mi>
+	</msqrt>
+	<mo>)</mo>
+  </math>
+</p>
+<p>
+  The intial condition
+  <math display="block">
+	<mi>v</mi>
+	<mo>(</mo>
+	<mn>0</mn>
+	<mo>)</mo>
+	<mo>=</mo>
+	<msub>
+	  <mi>v</mi>
+	  <mn>0</mn>
+	</msub>
+	<mo>≠</mo>
+	<mn>0</mn>
+  </math>
+  dictates the constant of integration.
+  <math display="block">
+	<msub>
+	  <mi>C</mi>
+	  <mn>0</mn>
+	</msub>
+	<mo>=</mo>
+	<mfrac>
+	  <mn>1</mn>
+	  <msqrt>
+		<mi>𝜇</mi>
+		<mi>g</mi>
+	  </msqrt>
+	</mfrac>
+	<mo>arctan</mo>
+	<mo>(</mo>
+	<msub>
+	  <mi>v</mi>
+	  <mn>0</mn>
+	</msub>
+	<msqrt>
+	  <mfrac>
+		<mi>𝜇</mi>
+		<mi>g</mi>
+	  </mfrac>
+	</msqrt>
+	<mo>)</mo>
+  </math>
+</p>
+
+<h3>Model of an object during free fall with resistance</h3>
+<math display="block">
+  <mi>m</mi>
+  <mfrac>
+	<mrow><mo>𝕕</mo><mi>v</mi></mrow>
+	<mrow><mo>𝕕</mo><mi>t</mi></mrow>
+  </mfrac>
+  <mo>=</mo>
+  <mi>m</mi><mi>g</mi>
+  <mo>-</mo>
+  <mi>k</mi><msup>
+	<mi>v</mi>
+	<mn>2</mn>
+  </msup>
+</math>
+
+<math display="block">
+  <mi>𝜇</mi>
+  <mo>=</mo>
+  <mfrac>
+	<mi>k</mi>
+	<mi>m</mi>
+  </mfrac>
+</math>
+
+<math display="block">
+  <mfrac>
+	<mrow><mo>𝕕</mo><mi>v</mi></mrow>
+	<mrow>
+	  <mi>g</mi>
+	  <mo>-</mo>
+	  <mi>𝜇</mi><msup>
+		<mi>v</mi>
+		<mn>2</mn>
+	  </msup>
+	</mrow>
+  </mfrac>
+  <mo>=</mo>
+  <mo>𝕕</mo>
+  <mi>t</mi>
+</math>
+
+<math display="block">
+  <msqrt>
+	<mfrac>
+	  <mi>g</mi>
+	  <mi>𝜇</mi>
+	</mfrac>
+  </msqrt>
+  <mo>tanh</mo>
+  <mo>(</mo>
+  <mi>w</mi>
+  <mo>)</mo>
+  <mo>=</mo>
+  <mi>v</mi>
+</math>
+
+<math display="block">
+  <msqrt>
+	<mfrac>
+	  <mi>g</mi>
+	  <mi>𝜇</mi>
+	</mfrac>
+  </msqrt>
+  <msup>
+	<mo>sech</mo>
+	<mn>2</mn>
+  </msup>
+  <mo>(</mo>
+  <mi>w</mi>
+  <mo>)</mo>
+  <mo>𝕕</mo>
+  <mi>w</mi>
+  <mo>=</mo>
+  <mo>𝕕</mo>
+  <mi>v</mi>
+</math>
+
+<math display="block">
+  <mfrac>
+	<mn>1</mn>
+	<msqrt>
+	  <mi>𝜇</mi>
+	  <mi>g</mi>
+	</msqrt>
+  </mfrac>
+  <mo largeop="true">∫</mo>
+  <mo>𝕕</mo>
+  <mi>w</mi>
+  <mo>=</mo>
+  <mfrac>
+	<mn>1</mn>
+	<msqrt>
+	  <mi>𝜇</mi>
+	  <mi>g</mi>
+	</msqrt>
+  </mfrac>
+  <mo>artanh</mo>
+  <mo>(</mo>
+  <mi>v</mi>
+  <msqrt>
+	<mfrac>
+	  <mi>𝜇</mi>
+	  <mi>g</mi>
+	</mfrac>
+  </msqrt>
+  <mo>)</mo>
+  <mo>=</mo>
+  <mi>t</mi>
+  <mo>+</mo>
+  <mi>C</mi>
+</math>
+
+<math display="block">
+  <mi>v</mi>
+  <mo>(</mo>
+  <mi>t</mi>
+  <mo>)</mo>
+  <mo>=</mo>
+  <msqrt>
+	<mfrac>
+	  <mi>g</mi>
+	  <mi>𝜇</mi>
+	</mfrac>
+  </msqrt>
+  <mo>tanh</mo>
+  <mo>(</mo>
+  <mi>t</mi>
+  <msqrt>
+	<mi>𝜇</mi>
+	<mi>g</mi>
+  </msqrt>
+  <mo>+</mo>
+  <mi>C</mi>
+  <mo>)</mo>
+</math>
+
+<math display="block">
+  <mi>v</mi>
+  <mo>(</mo>
+  <mn>0</mn>
+  <mo>)</mo>
+  <mo>=</mo>
+  <msub>
+	<mi>v</mi>
+	<mn>0</mn>
+  </msub>
+  <mo>=</mo>
+  <mn>0</mn>
+</math>
+
+<math display="block">
+  <mi>v</mi>
+  <mo>(</mo>
+  <mi>t</mi>
+  <mo>)</mo>
+  <mo>=</mo>
+  <msqrt>
+	<mfrac>
+	  <mi>g</mi>
+	  <mi>𝜇</mi>
+	</mfrac>
+  </msqrt>
+  <mo>tanh</mo>
+  <mo>(</mo>
+  <mi>t</mi>
+  <msqrt>
+	<mi>𝜇</mi>
+	<mi>g</mi>
+  </msqrt>
+  <mo>)</mo>
+</math>
