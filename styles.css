@@ -115,11 +115,15 @@ p {
 	margin-left: 5%;
 }
 
-math {
-	font-size: 1.2em;
-	margin-left: 8%;
+math[display="block"] {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+	font-size: 1.4em;
 	math-style: normal;
-	display: block;
+}
+
+math {
+	math-style: compact;
 }
 
 code {
