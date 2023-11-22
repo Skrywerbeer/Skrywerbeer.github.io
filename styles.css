@@ -1,5 +1,10 @@
 @import url('./webcomponents.css');
 @import url('./gallery.css');
+
+@font-face {
+	font-family: "Noto Sans Math";
+	src: url("./assets/fonts/NotoSans/NotoSansMath-Regular.ttf");
+}
 /* You can add global styles to this file, and also import other style files */
 * {
 	/* ---------------------------------------- */
@@ -72,8 +77,7 @@ main {
 	margin-left: 5vw;
 	margin-right: 30vw;
 
-	font-family: monospace;
-	font-size: 12pt;
+	font-size: 14pt;
 }
 @media screen and (max-width: 800px) {
 	main {
@@ -115,15 +119,17 @@ p {
 	margin-left: 5%;
 }
 
-math[display="block"] {
-	margin-top: 0.5em;
-	margin-bottom: 1em;
-	font-size: 1.4em;
-	math-style: normal;
+math {
+	font-family: "Noto Sans Math";
+	math-style: compact;
 }
 
-math {
-	math-style: compact;
+math[display="block"] {
+
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+	font-size: 1.2em;
+	math-style: normal;
 }
 
 code {
