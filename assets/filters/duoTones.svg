@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+	<filter id="plainBlack">
+	  <feComponentTransfer>
+		<feFuncR
+		  type="gamma"
+		  exponent="8"
+		  amplitude="1"
+		  offset="0"
+		  />
+	  </feComponentTransfer>
+	  <feColorMatrix
+		type="matrix"
+		values="0.7 0.2 0.1 0 0
+				0   0   0   0 0
+				0   0   0   0 0
+				0   0   0   1 0"
+		/>
+	  <feColorMatrix
+		type="matrix"
+		values="1 0 0 0 0
+				1 0 0 0 0
+				1 0 0 0 0
+				0 0 0 1 0"
+		/>
+	</filter>
+
+	<filter id="artyBlack">
+	  <feComponentTransfer>
+		<feFuncR
+		  type="gamma"
+		  exponent="8"
+		  amplitude="1"
+		  offset="0"
+		  />
+	  </feComponentTransfer>
+	  <feColorMatrix
+		type="matrix"
+		values="0.7 0.2 0.1 0 0
+				0   0   0   0 0
+				0   0   0   0 0
+				0   0   0   1 0"
+		/>
+	  <feColorMatrix
+		type="matrix"
+		values="1 0 0 0 0
+				1 0 0 0 0
+				1 0 0 0 0
+				0 0 0 1 0"
+		/>
+	  <feConvolveMatrix
+		kernelMatrix="-1 -1 -1
+					  -1  9 -1
+					  -1 -1 -1"
+		/>
+	</filter>
+
+  </defs>
+</svg>
