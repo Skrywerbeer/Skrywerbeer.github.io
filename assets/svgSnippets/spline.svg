@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+	 width="800" height="800"
+	 viewBox="-0.2 -0.2 1.4 1.4">
+  <title>Cubic Bezier</title>
+  <desc>
+	An interactive drawing of a cubic Bezier curve.
+	The drawing has a button to copy the coordinates of the control
+	points to the clipboard. The control point coordinates are also
+	displayed along the bottom.
+  </desc>
+  <style>
+	path {
+		fill: none;
+		stroke: royalblue;
+		stroke-width: 0.01;
+		stroke-linecap: round;
+	}
+	.border {
+		fill: none;
+		stroke-width: 0.01;
+		stroke: orchid;
+	}
+	#bkgrnd {
+		stroke: orchid;
+		fill: aliceblue;
+	}
+	.mark {
+		fill: crimson;
+		transition: fill 200ms;
+	}
+	.mark:active {
+		fill: olivedrab;
+	}
+	polyline {
+		fill: none;
+		stroke: royalblue;
+		stroke-width: 0.005;
+	}
+	text {
+		font: italic 0.05px monospace;
+	}
+	#copy {
+		font: bold 0.1px monospace;
+		fill: crimson;
+		cursor: pointer;
+	}
+	#copy:hover {
+		filter: url('#glow');
+	}
+  </style>
+  <defs>
+	<filter id="glow"
+			x="-20%" y="-20%"
+			width="140%" height="140%"
+			filterPrimitiveUnits="objectBoundingBox">
+	  <feMorphology
+		in="SourceGraphic"
+		radius="0.007"
+		operator="dilate"
+		/>
+	  <feComposite
+		in2="SourceGraphic"
+		operator="xor"
+		result="outline"
+		/>
+	  <feColorMatrix
+		type="matrix"
+		values="1 0 0 0 0.3
+				0 1 0 0 0.3
+				0 0 1 0 0.3
+				0 0 0 1 0"
+		/>
+	  <feGaussianBlur
+		stdDeviation="0.003"
+		result="glow"
+		/>
+	  <feMerge>
+		<feMergeNode in="SourceGraphic" />
+		<feMergeNode in="glow" />
+	  </feMerge>	  
+	</filter>
+  </defs>
+    <rect id="bkgrnd" class="border"
+		x="-0.2" y="-0.2"
+		rx="10%" ry="10%"
+		width="100%" height="100%"
+		/>
+  <rect class="border" width="1" height="1" />
+  <text id="output"
+		text-anchor="middle"
+		x="0.5" y="1.1"></text>
+  <text id="copy"
+		text-anchor="middle"
+		x="0.5" y="-0.06">📋Copy📋</text>
+
+  <path id="path"
+		d="M 0 1 C 0.2 0.2, 0.7 0.3, 1 0"
+		pathLength="1"
+		stroke-dashoffset="1"
+		stroke-dasharray="1"
+		>
+	<animate attributeName="stroke-dashoffset"
+			 calcMode="paced"
+			 from="1"
+			 to="0"
+			 dur="1s"
+			 begin="200ms"
+			 fill="freeze"
+			 />
+  </path>
+
+  <polyline id="L1" points="0 1, 0 0" />
+  <polyline id="L2" points="1 0, 0 0" />
+
+  <circle id="C1" class="mark" r="0.02" cx="0.5" cy="0" />
+  <circle id="C2" class="mark" r="0.02" cx="0.5" cy="1" />
+
+  <script>
+	<![CDATA[
+		console.log("helo")
+		const svg = document.querySelector("svg");
+		const trans = svg.getScreenCTM().inverse();
+
+		const path = document.getElementById("path");
+		const l1 = document.getElementById("L1");
+		const l2 = document.getElementById("L2");
+		const output = document.getElementById("output");
+
+		let moveTarget;
+		function moveHandler(event) {
+			const p = new DOMPoint(event.pageX, event.pageY, 0)
+				  .matrixTransform(trans);
+			if (p.x < 0)
+				p.x = 0;
+			else if (p.x > 1)
+				p.x = 1;
+			moveTarget.setAttributeNS(null, "cx", p.x);
+			if (p.y < 0)
+				p.y = 0;
+			else if (p.y > 1)
+				p.y = 1;
+			moveTarget.setAttributeNS(null, "cy", p.y);
+			moveTarget.dispatchEvent(new Event("changed"));
+		}
+
+		function adjustPath() {
+			path.setAttributeNS(null, "d", "M 0 1 C " +
+								`${c1.cx.baseVal.value} ${c1.cy.baseVal.value}, `+
+								`${c2.cx.baseVal.value} ${c2.cy.baseVal.value}, ` +
+								"1 0");
+			l1.setAttributeNS(null, "points", "0 1, " +
+							  `${c1.cx.baseVal.value} ${c1.cy.baseVal.value}`)
+			l2.setAttributeNS(null, "points", "1 0, " +
+							  `${c2.cx.baseVal.value} ${c2.cy.baseVal.value}`)
+			output.textContent =
+				`${c1.cx.baseVal.value.toPrecision(4)} ` +
+				`${(1 - c1.cy.baseVal.value).toPrecision(4)} ` +
+				`${c2.cx.baseVal.value.toPrecision(4)} ` +
+				`${(1 - c2.cy.baseVal.value).toPrecision(4)}`;
+		}
+
+		const c1 = document.getElementById("C1");
+		c1.addEventListener("mousedown", () => {
+			moveTarget = c1;
+			window.addEventListener("mousemove", moveHandler);
+		})
+
+		const c2 = document.getElementById("C2");
+		c2.addEventListener("mousedown", () => {
+			moveTarget = c2;
+			window.addEventListener("mousemove", moveHandler);
+		})
+
+		window.addEventListener("mouseup", () => {
+			window.removeEventListener("mousemove", moveHandler);
+		});
+
+		c1.addEventListener("changed", adjustPath);
+		c2.addEventListener("changed", adjustPath);
+		adjustPath();
+
+		const copy = document.getElementById("copy");
+		copy.addEventListener("click", () => {
+			navigator.clipboard.writeText(`${output.textContent}`)
+				.then(() => {})
+				.catch((error) => console.error(error));
+		});
+	]]>
+  </script>
+</svg>
