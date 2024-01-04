@@ -10,3 +10,6 @@
 [submodule "git-modules/StaffTrainer"]
 	path = git-modules/StaffTrainer
 	url = https://github.com/Skrywerbeer/StaffTrainer.git
+[submodule "git-modules/SVGUtils"]
+	path = git-modules/SVGUtils
+	url = https://github.com/Skrywerbeer/SVGUtils
