@@ -1,6 +1,8 @@
 @import url('./webcomponents.css');
 @import url('./gallery.css');
 
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
 @font-face {
 	font-family: "Noto Sans Math";
 	src: url("./assets/fonts/NotoSans/NotoSansMath-Regular.ttf");
@@ -67,6 +69,47 @@ header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+
+	nav {
+		ul {
+			padding: 1vh 1vw;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1vw;
+			list-style: none inside;
+			
+			li {
+				display: flex;
+				padding: 0 1em;
+				border: var(--borderThin);
+				background: var(--inactiveFill);
+
+				transition: background 400ms;
+			}
+
+			li a {
+				flex-grow: 1;
+				line-height: 3;
+				color: var(--inactiveText);
+				text-decoration: none;
+				text-align: center;
+				font-family: monospace;
+				font-size: 1.2em;
+
+				transition: color 400ms;
+			}
+
+			li:hover {
+				background: var(--activeFill);
+			}
+
+			li:hover a {
+				color: var(--activeText);
+			}
+		}
+	}
 }
 
 main {
@@ -77,6 +120,7 @@ main {
 	margin-left: 5vw;
 	margin-right: 30vw;
 
+	font-family: "Exo 2";
 	font-size: 14pt;
 }
 @media screen and (max-width: 800px) {
@@ -132,6 +176,21 @@ math[display="block"] {
 	math-style: normal;
 }
 
+div.graphLayout {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+svg.graph {
+	aspect-ratio: 1 / 1;
+	/* border: 2px solid #333333; */
+	/* border-bottom: 4px solid #111111; */
+	background: linear-gradient(to bottom right, #0a0a22, #050505);
+
+}
+
 code {
 	background: lightgray;
 }
@@ -154,7 +213,7 @@ ul {
 li {
 	margin-left: 4%;
 }
-
+main {
 a {
 	color: black;
 	padding-left: 0.2em;
@@ -167,7 +226,7 @@ a:hover {
 	background-color: var(--inactiveFill);
 	color: var(--inactiveText);
 }
-
+}
 section h2 + img {
 	width: 80%;
 	margin-left: 10%;

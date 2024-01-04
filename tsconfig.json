@@ -10,7 +10,7 @@
 		"target" : "es2022",
 	},
 	"files": [
-		"components/navbar.ts",
+		"components/contentLoader.ts",
 		"components/slideshow.ts",
 		"gallery_loadingIndicators.ts",
 		"webcomponents_gameOfLife.ts",

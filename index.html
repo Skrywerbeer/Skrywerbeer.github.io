@@ -10,19 +10,43 @@
 	
 	<link href="./assets/favicon.svg" rel="icon">
 	<link href="styles.css" rel="stylesheet">
-	<script src="components/navbar.js"></script>
-	<script src="components/slideshow.js"></script>
+	<!-- <script src="./components/navbar.js"></script> -->
+	<script src="./components/slideshow.js"></script>
+	<script src="./components/contentLoader.js"></script>
 
 	<script src="./git-modules/game-of-life/game-of-life.js" defer></script>
 	<script src="./git-modules/dragable-number/dragable-number.js"></script>
 	<script src="./git-modules/sparkline/sparkline.js"></script>
+	<script src="./git-modules/SVGUtils/svgutils.mjs" type="module"></script>
   </head>
 
   <body>
 	<header>
+	  <!-- <nav> -->
+	  <!-- 	<nav-bar></nav-bar> -->
+		<!-- </nav> -->
+	  <content-loader></content-loader>
 	  <nav>
-		<nav-bar></nav-bar>
+		<ul>
+		  <li><a is="internal-link"
+				 href="?page=home.html">Home</a></li>
+		  <li><a is="internal-link"
+				 href="?page=projects.html">Projects</a></li>
+		  <li><a is="internal-link"
+				 href="?page=webcomponents.html">Web Components</a></li>
+		  <li><a is="internal-link"
+				 href="?page=webapps.html">Web Apps</a></li>
+		  <li><a is="internal-link"
+				 href="?page=gallery.html">Gallery</a></li>
+		  <li><a is="internal-link"
+				 href="?page=mathematics.html">Mathematics</a></li>
+		  <li><a is="internal-link"
+				 href="?page=links.html">Links</a></li>
+		  <li><a is="internal-link"
+				 href="?page=about.html">About</a></li>
+		</ul>
 	  </nav>
+
 	</header>
 
 	<main id="contentView">
