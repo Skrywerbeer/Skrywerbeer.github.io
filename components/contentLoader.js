@@ -21,6 +21,7 @@ class ContentLoader extends HTMLElement {
         this.attachShadow({ mode: "open" });
     }
     connectedCallback() {
+        this.style.display = "none";
         window.addEventListener("popstate", this.loadFragment);
         window.addEventListener("load", this.loadFragment);
     }

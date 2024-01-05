@@ -23,8 +23,10 @@ class ContentLoader extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({mode: "open"});
+
 	}
 	private connectedCallback(): void {
+		this.style.display = "none";
 		window.addEventListener("popstate", this.loadFragment);
 		window.addEventListener("load", this.loadFragment);
 	}
