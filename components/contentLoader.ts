@@ -37,11 +37,12 @@ class ContentLoader extends HTMLElement {
 	public loadFragment(): void {
 		// TODO: add error and timeout handling.
 		const docURL = new URL(document.URL);
-		const fragmentURL = docURL.searchParams.get("page");
-		if (fragmentURL === null)
-			throw new Error("nav-bar: document url misformed.");
-		fetch(fragmentURL)
+		let fragmentURL = docURL.searchParams.get("page");
+		// if (fragmentURL === null)
+		// 	throw new Error("nav-bar: document url misformed.");
+		fetch(((fragmentURL !== null) ? fragmentURL : "home.html"))
 			.then((response) => {
+				// TODO: load 404 error page.
 				if (!response.ok)
 					throw new Error("nav-bar: Failed to fetch fragment, " +
 						`response returned ${response.status}`);

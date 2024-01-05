@@ -31,10 +31,8 @@ class ContentLoader extends HTMLElement {
     }
     loadFragment() {
         const docURL = new URL(document.URL);
-        const fragmentURL = docURL.searchParams.get("page");
-        if (fragmentURL === null)
-            throw new Error("nav-bar: document url misformed.");
-        fetch(fragmentURL)
+        let fragmentURL = docURL.searchParams.get("page");
+        fetch(((fragmentURL !== null) ? fragmentURL : "home.html"))
             .then((response) => {
             if (!response.ok)
                 throw new Error("nav-bar: Failed to fetch fragment, " +
