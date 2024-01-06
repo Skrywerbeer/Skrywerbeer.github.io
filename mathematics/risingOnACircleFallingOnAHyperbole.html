@@ -1,417 +1,432 @@
 <!-- MATHEMATICAL ITALIC SMALL MU -->
 <!-- MATHEMATICAL DOUBLE-STRUCK SMALL D -->
-
-<h2>Rising On A Circle Falling On A Hyperbole.</h2>
-<h3>Model of an object during accent with resistance</h3>
-<p>
-  Consider a cannonball shot straight up in to the air. It can be anything else
-  but cannonballs is more traditional than shooting pies. If the air resistance
-  is proportional to the square of the instantanuous speed, then a simple model
-  for the system is.
-  <math display="block">
-	<mi>m</mi>
-	<mfrac>
-	  <mrow><mo>𝕕</mo><mi>v</mi></mrow>
-	  <mrow><mo>𝕕</mo><mi>t</mi></mrow>
-	</mfrac>
-	<mo>=</mo>
-	<mo>-</mo>
-	<mo>(</mo>
-	<mi>m</mi><mi>g</mi>
-	<mo>+</mo>
-	<mi>k</mi><msup>
-	  <mi>v</mi>
-	  <mn>2</mn>
-	</msup>
-	<mo>)</mo>
-  </math>
-</p>
-<p>
-  With a small simplifing substitution.
-  <math display="block">
-	<mi>𝜇</mi>
-	<mo>=</mo>
-	<mfrac>
-	  <mi>k</mi>
-	  <mi>m</mi>
-	</mfrac>
-  </math>
-</p>
-
-<p>
-  And rearranging. This is a trivial integral as long as you remember your
-  trigonometric substitutions.
-<math display="block">
-  <mfrac>
-	<mrow><mo>𝕕</mo><mi>v</mi></mrow>
-	<mrow>
-	  <mi>g</mi>
-	  <mo>+</mo>
-	  <mi>𝜇</mi><msup>
-		<mi>v</mi>
-		<mn>2</mn>
-	  </msup>
-	</mrow>
-  </mfrac>
-  <mo>=</mo>
-  <mo>-</mo>
-  <mo>𝕕</mo>
-  <mi>t</mi>
-</math>
-</p>
-
-<p>
-  Namely.
-  <math display="block">
-	<msqrt>
-	  <mfrac>
-		<mi>g</mi>
-		<mi>𝜇</mi>
-	  </mfrac>
-	</msqrt>
-	<mi>tan</mi>
-	<mo>(</mo>
-	<mi>w</mi>
-	<mo>)</mo>
-	<mo>=</mo>
-	<mi>v</mi>
-  </math>
-  And the matching differential.
-  <math display="block">
-  <msqrt>
-	<mfrac>
-	  <mi>g</mi>
-	  <mi>𝜇</mi>
-	</mfrac>
-  </msqrt>
-  <msup>
-	<mo>sec</mo>
-	<mn>2</mn>
-  </msup>
-  <mo>(</mo>
-  <mi>w</mi>
-  <mo>)</mo>
-  <mo>𝕕</mo>
-  <mi>w</mi>
-  <mo>=</mo>
-  <mo>𝕕</mo>
-  <mi>v</mi>
-</math>
-</p>
-
-<p>
-  Substituting in, solving the integral and expressing <math><mi>w</mi></math>
-  again in terms of <math><mi>v</mi></math>.
-  <math display="block">
-	<mfrac>
-	  <mn>1</mn>
-	  <msqrt>
-		<mi>𝜇</mi>
-		<mi>g</mi>
-	  </msqrt>
-	</mfrac>
-	<mo largeop="true">∫</mo>
-	<mo>𝕕</mo>
-	<mi>w</mi>
-	<mo>=</mo>
-	<mfrac>
-	  <mn>1</mn>
-	  <msqrt>
-		<mi>𝜇</mi>
-		<mi>g</mi>
-	  </msqrt>
-	</mfrac>
-	<mi>arctan</mi>
-	<mo>(</mo>
-	<mi>v</mi>
-	<msqrt>
-	  <mfrac>
-		<mi>𝜇</mi>
-		<mi>g</mi>
-	  </mfrac>
-	</msqrt>
-	<mo>)</mo>
-	<mo>=</mo>
-	<mi>C</mi>
-	<mo>-</mo>
-	<mi>t</mi>
-  </math>
-</p>
-
-<p>
-  And finally solving for <math><mi>v</mi></math> as a function of
-  <math><mi>t</mi></math> and consolidating constants we get.
-  <math display="block">
-	<mi>v</mi>
-	<mo>(</mo>
-	<mi>t</mi>
-	<mo>)</mo>
-	<mo>=</mo>
-	<msqrt>
-	  <mfrac>
-		<mi>g</mi>
-		<mi>𝜇</mi>
-	  </mfrac>
-	</msqrt>
-	<mi>tan</mi>
-	<mo>(</mo>
-	<mi>C</mi>
-	<mo>-</mo>
-	<mi>t</mi>
-	<msqrt>
-	  <mi>𝜇</mi>
-	  <mi>g</mi>
-	</msqrt>
-	<mo>)</mo>
-  </math>
-</p>
-
-<p>
-  The intial condition
-  <math>
-	<mi>v</mi>
-	<mo>(</mo>
-	<mn>0</mn>
-	<mo>)</mo>
-	<mo>=</mo>
-	<msub>
-	  <mi>v</mi>
-	  <mn>0</mn>
-	</msub>
-	<mo>≠</mo>
-	<mn>0</mn>
-  </math>, because remember we're shooting cannonballs, dictates the constant of
-  integration.
-  <math display="block">
-	<mi>C</mi>
-	<mo>=</mo>
-	<mfrac>
-	  <mn>1</mn>
-	  <msqrt>
-		<mi>𝜇</mi>
-		<mi>g</mi>
-	  </msqrt>
-	</mfrac>
-	<mi>arctan</mi>
-	<mo>(</mo>
-	<msub>
-	  <mi>v</mi>
-	  <mn>0</mn>
-	</msub>
-	<msqrt>
-	  <mfrac>
-		<mi>𝜇</mi>
-		<mi>g</mi>
-	  </mfrac>
-	</msqrt>
-	<mo>)</mo>
-  </math>
-</p>
-
-<h3>Model of an object during free fall with resistance</h3>
-<p>
-  The model for our cannonball during free fall is similiar, except that now
-  the resistance term <math>
-	<mi>k</mi>
-	<msup>
-	  <mi>v</mi>
-	  <mn>2</mn>
-	</msup>
-  </math> opposes the weight term <math>
-	<mi>m</mi>
-	<mi>g</mi>
-  </math>.
-  <math display="block">
-	<mi>m</mi>
-	<mfrac>
-	  <mrow><mo>𝕕</mo><mi>v</mi></mrow>
-	  <mrow><mo>𝕕</mo><mi>t</mi></mrow>
-	</mfrac>
-	<mo>=</mo>
-	<mi>m</mi><mi>g</mi>
-	<mo>-</mo>
-	<mi>k</mi><msup>
-	  <mi>v</mi>
-	  <mn>2</mn>
-	</msup>
-  </math>
-</p>
-
-<p>
-  Again we use the same simplification.
-  <math display="block">
-	<mi>𝜇</mi>
-	<mo>=</mo>
-	<mfrac>
-	  <mi>k</mi>
-	  <mi>m</mi>
-	</mfrac>
-  </math>
-</p>
-
-<p>
-  Separate.
-  <math display="block">
-	<mfrac>
-	  <mrow><mo>𝕕</mo><mi>v</mi></mrow>
-	  <mrow>
-		<mi>g</mi>
+<html>
+  <head>
+  </head>
+  
+  <body>
+	<h2>Rising On A Circle Falling On A Hyperbole.</h2>
+	<h3>Model of an object during accent with resistance</h3>
+	<p>
+	  Consider a cannonball shot straight up in to the air. It can be anything else
+	  but cannonballs is more traditional than shooting pies. If the air resistance
+	  is proportional to the square of the instantanuous speed, then a simple model
+	  for the system is.
+	  <math display="block">
+		<mi>m</mi>
+		<mfrac>
+		  <mrow><mo>𝕕</mo><mi>v</mi></mrow>
+		  <mrow><mo>𝕕</mo><mi>t</mi></mrow>
+		</mfrac>
+		<mo>=</mo>
 		<mo>-</mo>
-		<mi>𝜇</mi><msup>
+		<mo>(</mo>
+		<mi>m</mi><mi>g</mi>
+		<mo>+</mo>
+		<mi>k</mi><msup>
 		  <mi>v</mi>
 		  <mn>2</mn>
 		</msup>
-	  </mrow>
-	</mfrac>
-	<mo>=</mo>
-	<mo>𝕕</mo>
-	<mi>t</mi>
-  </math>
-</p>
-<p>
-  This time the substitution that leads to the easiest integral is not a
-  circular function but a hyberbolic one. The integral on the left is solvable
-  using other substitutions but they require more work. So let's stick with.
-  <math display="block">
-	<msqrt>
-	  <mfrac>
-		<mi>g</mi>
+		<mo>)</mo>
+	  </math>
+	</p>
+	<p>
+	  With a small simplifing substitution.
+	  <math display="block">
 		<mi>𝜇</mi>
-	  </mfrac>
-	</msqrt>
-	<mi>tanh</mi>
-	<mo>(</mo>
-	<mi>w</mi>
-	<mo>)</mo>
-	<mo>=</mo>
-	<mi>v</mi>
-  </math>
-  Just add an "h" to the previous differential.
-  <math display="block">
-	<msqrt>
-	  <mfrac>
-		<mi>g</mi>
-		<mi>𝜇</mi>
-	  </mfrac>
-	</msqrt>
-	<msup>
-	  <mo>sech</mo>
-	  <mn>2</mn>
-	</msup>
-	<mo>(</mo>
-	<mi>w</mi>
-	<mo>)</mo>
-	<mo>𝕕</mo>
-	<mi>w</mi>
-	<mo>=</mo>
-	<mo>𝕕</mo>
-	<mi>v</mi>
-  </math>
-</p>
+		<mo>=</mo>
+		<mfrac>
+		  <mi>k</mi>
+		  <mi>m</mi>
+		</mfrac>
+	  </math>
+	</p>
 
-<p>
-  Substitute, evaluate, substitute,
-  <math display="block">
-	<mfrac>
-	  <mn>1</mn>
-	  <msqrt>
-		<mi>𝜇</mi>
+	<p>
+	  And rearranging. This is a trivial integral as long as you remember your
+	  trigonometric substitutions.
+	  <math display="block">
+		<mfrac>
+		  <mrow><mo>𝕕</mo><mi>v</mi></mrow>
+		  <mrow>
+			<mi>g</mi>
+			<mo>+</mo>
+			<mi>𝜇</mi><msup>
+			  <mi>v</mi>
+			  <mn>2</mn>
+			</msup>
+		  </mrow>
+		</mfrac>
+		<mo>=</mo>
+		<mo>-</mo>
+		<mo>𝕕</mo>
+		<mi>t</mi>
+	  </math>
+	</p>
+
+	<p>
+	  Namely.
+	  <math display="block">
+		<msqrt>
+		  <mfrac>
+			<mi>g</mi>
+			<mi>𝜇</mi>
+		  </mfrac>
+		</msqrt>
+		<mi>tan</mi>
+		<mo>(</mo>
+		<mi>w</mi>
+		<mo>)</mo>
+		<mo>=</mo>
+		<mi>v</mi>
+	  </math>
+	  And the matching differential.
+	  <math display="block">
+		<msqrt>
+		  <mfrac>
+			<mi>g</mi>
+			<mi>𝜇</mi>
+		  </mfrac>
+		</msqrt>
+		<msup>
+		  <mo>sec</mo>
+		  <mn>2</mn>
+		</msup>
+		<mo>(</mo>
+		<mi>w</mi>
+		<mo>)</mo>
+		<mo>𝕕</mo>
+		<mi>w</mi>
+		<mo>=</mo>
+		<mo>𝕕</mo>
+		<mi>v</mi>
+	  </math>
+	</p>
+
+	<p>
+	  Substituting in, solving the integral and expressing <math><mi>w</mi></math>
+	  again in terms of <math><mi>v</mi></math>.
+	  <math display="block">
+		<mfrac>
+		  <mn>1</mn>
+		  <msqrt>
+			<mi>𝜇</mi>
+			<mi>g</mi>
+		  </msqrt>
+		</mfrac>
+		<mo largeop="true">∫</mo>
+		<mo>𝕕</mo>
+		<mi>w</mi>
+		<mo>=</mo>
+		<mfrac>
+		  <mn>1</mn>
+		  <msqrt>
+			<mi>𝜇</mi>
+			<mi>g</mi>
+		  </msqrt>
+		</mfrac>
+		<mi>arctan</mi>
+		<mo>(</mo>
+		<mi>v</mi>
+		<msqrt>
+		  <mfrac>
+			<mi>𝜇</mi>
+			<mi>g</mi>
+		  </mfrac>
+		</msqrt>
+		<mo>)</mo>
+		<mo>=</mo>
+		<mi>C</mi>
+		<mo>-</mo>
+		<mi>t</mi>
+	  </math>
+	</p>
+
+	<p>
+	  And finally solving for <math><mi>v</mi></math> as a function of
+	  <math><mi>t</mi></math> and consolidating constants we get.
+	  <math display="block">
+		<mi>v</mi>
+		<mo>(</mo>
+		<mi>t</mi>
+		<mo>)</mo>
+		<mo>=</mo>
+		<msqrt>
+		  <mfrac>
+			<mi>g</mi>
+			<mi>𝜇</mi>
+		  </mfrac>
+		</msqrt>
+		<mi>tan</mi>
+		<mo>(</mo>
+		<mi>C</mi>
+		<mo>-</mo>
+		<mi>t</mi>
+		<msqrt>
+		  <mi>𝜇</mi>
+		  <mi>g</mi>
+		</msqrt>
+		<mo>)</mo>
+	  </math>
+	</p>
+
+	<p>
+	  The intial condition
+	  <math>
+		<mi>v</mi>
+		<mo>(</mo>
+		<mn>0</mn>
+		<mo>)</mo>
+		<mo>=</mo>
+		<msub>
+		  <mi>v</mi>
+		  <mn>0</mn>
+		</msub>
+		<mo>≠</mo>
+		<mn>0</mn>
+	  </math>, because remember we're shooting cannonballs, dictates the constant of
+	  integration.
+	  <math display="block">
+		<mi>C</mi>
+		<mo>=</mo>
+		<mfrac>
+		  <mn>1</mn>
+		  <msqrt>
+			<mi>𝜇</mi>
+			<mi>g</mi>
+		  </msqrt>
+		</mfrac>
+		<mi>arctan</mi>
+		<mo>(</mo>
+		<msub>
+		  <mi>v</mi>
+		  <mn>0</mn>
+		</msub>
+		<msqrt>
+		  <mfrac>
+			<mi>𝜇</mi>
+			<mi>g</mi>
+		  </mfrac>
+		</msqrt>
+		<mo>)</mo>
+	  </math>
+	  <div class="graphLayout">
+		<svg class="graph" width="50%" >
+		  <rect width="50%" height="50%" fill="blue" />
+		</svg>
+		<script>
+		  import {enablePan} from "./git-modules/SVGUtils/svgutils.mjs";
+		  console.log(enablePan);
+		</script>
+	  </div>
+	</p>
+
+	<h3>Model of an object during free fall with resistance</h3>
+	<p>
+	  The model for our cannonball during free fall is similiar, except that now
+	  the resistance term <math>
+		<mi>k</mi>
+		<msup>
+		  <mi>v</mi>
+		  <mn>2</mn>
+		</msup>
+	  </math> opposes the weight term <math>
+		<mi>m</mi>
 		<mi>g</mi>
-	  </msqrt>
-	</mfrac>
-	<mo largeop="true">∫</mo>
-	<mo>𝕕</mo>
-	<mi>w</mi>
-	<mo>=</mo>
-	<mfrac>
-	  <mn>1</mn>
-	  <msqrt>
+	  </math>.
+	  <math display="block">
+		<mi>m</mi>
+		<mfrac>
+		  <mrow><mo>𝕕</mo><mi>v</mi></mrow>
+		  <mrow><mo>𝕕</mo><mi>t</mi></mrow>
+		</mfrac>
+		<mo>=</mo>
+		<mi>m</mi><mi>g</mi>
+		<mo>-</mo>
+		<mi>k</mi><msup>
+		  <mi>v</mi>
+		  <mn>2</mn>
+		</msup>
+	  </math>
+	</p>
+
+	<p>
+	  Again we use the same simplification.
+	  <math display="block">
 		<mi>𝜇</mi>
-		<mi>g</mi>
-	  </msqrt>
-	</mfrac>
-	<mi>artanh</mi>
-	<mo>(</mo>
-	<mi>v</mi>
-	<msqrt>
-	  <mfrac>
-		<mi>𝜇</mi>
-		<mi>g</mi>
-	  </mfrac>
-	</msqrt>
-	<mo>)</mo>
-	<mo>=</mo>
-	<mi>t</mi>
-	<mo>+</mo>
-	<mi>C</mi>
-  </math>
-  rearrange and consolidating those constants we get a very similar
-  looking solution for our model.
-  <math display="block">
-	<mi>v</mi>
-	<mo>(</mo>
-	<mi>t</mi>
-	<mo>)</mo>
-	<mo>=</mo>
-	<msqrt>
-	  <mfrac>
-		<mi>g</mi>
-		<mi>𝜇</mi>
-	  </mfrac>
-	</msqrt>
-	<mi>tanh</mi>
-	<mo>(</mo>
-	<mi>t</mi>
-	<msqrt>
-	  <mi>𝜇</mi>
-	  <mi>g</mi>
-	</msqrt>
-	<mo>+</mo>
-	<mi>C</mi>
-	<mo>)</mo>
-  </math>
-</p>
-<p>
-  This time the initial condition <math>
-	<mi>v</mi>
-	<mo>(</mo>
-	<mn>0</mn>
-	<mo>)</mo>
-	<mo>=</mo>
-	<msub>
-	  <mi>v</mi>
-	  <mn>0</mn>
-	</msub>
-	<mo>=</mo>
-	<mn>0</mn>
-  </math>
-  gives and easy<math display="block">
-	<mi>C</mi>
-	<mo>=</mo>
-	<mn>0</mn>
-  </math>
-</p>
-<p>
-  Leaving a neat function for the speed.
-  <math display="block">
-	<mi>v</mi>
-	<mo>(</mo>
-	<mi>t</mi>
-	<mo>)</mo>
-	<mo>=</mo>
-	<msqrt>
-	  <mfrac>
-		<mi>g</mi>
-		<mi>𝜇</mi>
-	  </mfrac>
-	</msqrt>
-	<mi>tanh</mi>
-	<mo>(</mo>
-	<mi>t</mi>
-	<msqrt>
-	  <mi>𝜇</mi>
-	  <mi>g</mi>
-	</msqrt>
-	<mo>)</mo>
-  </math>
-</p>
+		<mo>=</mo>
+		<mfrac>
+		  <mi>k</mi>
+		  <mi>m</mi>
+		</mfrac>
+	  </math>
+	</p>
+
+	<p>
+	  Separate.
+	  <math display="block">
+		<mfrac>
+		  <mrow><mo>𝕕</mo><mi>v</mi></mrow>
+		  <mrow>
+			<mi>g</mi>
+			<mo>-</mo>
+			<mi>𝜇</mi><msup>
+			  <mi>v</mi>
+			  <mn>2</mn>
+			</msup>
+		  </mrow>
+		</mfrac>
+		<mo>=</mo>
+		<mo>𝕕</mo>
+		<mi>t</mi>
+	  </math>
+	</p>
+	<p>
+	  This time the substitution that leads to the easiest integral is not a
+	  circular function but a hyberbolic one. The integral on the left is solvable
+	  using other substitutions but they require more work. So let's stick with.
+	  <math display="block">
+		<msqrt>
+		  <mfrac>
+			<mi>g</mi>
+			<mi>𝜇</mi>
+		  </mfrac>
+		</msqrt>
+		<mi>tanh</mi>
+		<mo>(</mo>
+		<mi>w</mi>
+		<mo>)</mo>
+		<mo>=</mo>
+		<mi>v</mi>
+	  </math>
+	  Just add an "h" to the previous differential.
+	  <math display="block">
+		<msqrt>
+		  <mfrac>
+			<mi>g</mi>
+			<mi>𝜇</mi>
+		  </mfrac>
+		</msqrt>
+		<msup>
+		  <mo>sech</mo>
+		  <mn>2</mn>
+		</msup>
+		<mo>(</mo>
+		<mi>w</mi>
+		<mo>)</mo>
+		<mo>𝕕</mo>
+		<mi>w</mi>
+		<mo>=</mo>
+		<mo>𝕕</mo>
+		<mi>v</mi>
+	  </math>
+	</p>
+
+	<p>
+	  Substitute, evaluate, substitute,
+	  <math display="block">
+		<mfrac>
+		  <mn>1</mn>
+		  <msqrt>
+			<mi>𝜇</mi>
+			<mi>g</mi>
+		  </msqrt>
+		</mfrac>
+		<mo largeop="true">∫</mo>
+		<mo>𝕕</mo>
+		<mi>w</mi>
+		<mo>=</mo>
+		<mfrac>
+		  <mn>1</mn>
+		  <msqrt>
+			<mi>𝜇</mi>
+			<mi>g</mi>
+		  </msqrt>
+		</mfrac>
+		<mi>artanh</mi>
+		<mo>(</mo>
+		<mi>v</mi>
+		<msqrt>
+		  <mfrac>
+			<mi>𝜇</mi>
+			<mi>g</mi>
+		  </mfrac>
+		</msqrt>
+		<mo>)</mo>
+		<mo>=</mo>
+		<mi>t</mi>
+		<mo>+</mo>
+		<mi>C</mi>
+	  </math>
+	  rearrange and consolidating those constants we get a very similar
+	  looking solution for our model.
+	  <math display="block">
+		<mi>v</mi>
+		<mo>(</mo>
+		<mi>t</mi>
+		<mo>)</mo>
+		<mo>=</mo>
+		<msqrt>
+		  <mfrac>
+			<mi>g</mi>
+			<mi>𝜇</mi>
+		  </mfrac>
+		</msqrt>
+		<mi>tanh</mi>
+		<mo>(</mo>
+		<mi>t</mi>
+		<msqrt>
+		  <mi>𝜇</mi>
+		  <mi>g</mi>
+		</msqrt>
+		<mo>+</mo>
+		<mi>C</mi>
+		<mo>)</mo>
+	  </math>
+	</p>
+	<p>
+	  This time the initial condition <math>
+		<mi>v</mi>
+		<mo>(</mo>
+		<mn>0</mn>
+		<mo>)</mo>
+		<mo>=</mo>
+		<msub>
+		  <mi>v</mi>
+		  <mn>0</mn>
+		</msub>
+		<mo>=</mo>
+		<mn>0</mn>
+	  </math>
+	  gives and easy<math display="block">
+		<mi>C</mi>
+		<mo>=</mo>
+		<mn>0</mn>
+	  </math>
+	</p>
+	<p>
+	  Leaving a neat function for the speed.
+	  <math display="block">
+		<mi>v</mi>
+		<mo>(</mo>
+		<mi>t</mi>
+		<mo>)</mo>
+		<mo>=</mo>
+		<msqrt>
+		  <mfrac>
+			<mi>g</mi>
+			<mi>𝜇</mi>
+		  </mfrac>
+		</msqrt>
+		<mi>tanh</mi>
+		<mo>(</mo>
+		<mi>t</mi>
+		<msqrt>
+		  <mi>𝜇</mi>
+		  <mi>g</mi>
+		</msqrt>
+		<mo>)</mo>
+	  </math>
+	</p>
+  </body>
+</html>

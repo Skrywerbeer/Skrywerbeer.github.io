@@ -1,91 +1,98 @@
-<h1>About</h1>
-<section id="site">
-  <h2>This site</h2>
-  <p>
-	Started as just a place to showcase and document my C++,💌, projects
-	and to a degree also as a personal alternative to the two dominant vitriol
-	aggregator sites. But in the continuous course of the site's development
-	it has been a source of further inspiration, projects and a deeper
-	appreciation of this modern art medium.
-  </p>
-  <!-- insert no frameworks graphic -->
-  <svg width="100%" height="40vh">
-	<desc>
-	  A drawing of a hill with three signposts declaring saying "no bloat",
-	  "no frameworks" and "no dependencies".
-	</desc>
-	<image href="./assets/noFrameworks.svg"
-		   width="100%" height="100%"
-		   />
-  </svg>
-  <p>
-	Starting with little html skills and a fair aquintance with javascript
-	thanks to <a href="https://www.qt.io/">Qt and QML</a>. But JS for QML
-	and JS for the web has some significant differences. With QML most
-	of your javascript is simply going to be glue holding your elements,
-	with C++ implementations together, on the web javascript is less
-	of an adhesive and more a cohesive blob.
-  </p>
-  <p>
-	Armed with a vague memory most that javascript talks Youtube has recommended
-	to me was about framework so and so, I head to google. Find the <a href="https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_web_frameworks">Wikipedia</a>
-	comparison page and start opening some tabs. React is quickly disqualified
-	(<i>Meta</i> 🤮). With some apprehension I finally decide on <a href="https://www.angular.io/">Angular.</a>
-	I open some more tabs; close, figurativly, my eyes and take a dive into the
-	documentation.
-  </p>
-  <p>
-	Out of previous experience with Android and how shallow at times even
-	obscure Google's documentation can be, I didn't have high hopes but was
-	pleasantly surprised when I started reading. I still have some gripes,
-	but who cares 🎻.
-  </p>
-  <p>
-	After installing everything, working through some examples and playing
-	around a bit. It is decided I will use Angular. But living in a country🇿🇦
-	with intermittent electricity means intermittent internet; so I hit the
-	first snag. You can't create a new Angular workspace that is going to work
-	without being online.
-  </p>
-  <p>
-	A few commits later and a working skeleton, I noticed a mistake and
-	wanted to revert back a couple of commits. Since I haven't uploaded
-	anything to Github jet, and just in case, I create a backup.
-	<code>cp -r</code> gets called and thumbs
-	start twiddling. It takes too long. <code>Ctrl+C</code> and
-	<code>du -hs</code>. 500M 😮.
-  </p>
-  <p>
-	I realize that the actual build is only 280K. But still,
-	for every workspace that you create just to experiment with something
-	or just for fun/practice, you have 500M repeated across your disk.
-  </p>
-  <p>
-	Doubts started forming in my mind.
-	<ul>
-	  <li>Bloated workspace</li>
-	  <li>Too little semantics in the DOM.</li>
-	  <li>It takes forever to click through the tree to
-		where my components are.</li>
-	  <li>Angular.io tabs use too much RAM.</li>
-	  <li>How much am I really using?</li>
-	</ul>
-  </p>
-  <p>
-	Having in the mean time learned alot more javascript, played around
-	with Web Components and having <a href="https://www.erikkroes.nl/blog/i-made-this-website-with-html/">read</a>
-	I realized for my use case that I don't need Angular or any framework
-	really. Besides what is more personal than writing and designing
-	everything yourself. This page and the lines of code that make it
-	up is fully my own. With no dependencies besides the API's the browser
-	provides. I hope it provides something useful to you. Comments and
-	critique is always welcome.
-  </p>
-</section>
+<html>
+  <head>
+  </head>
+  
+  <body>
+	<h1>About</h1>
+	<section id="site">
+	  <h2>This site</h2>
+	  <p>
+		Started as just a place to showcase and document my C++,💌, projects
+		and to a degree also as a personal alternative to the two dominant vitriol
+		aggregator sites. But in the continuous course of the site's development
+		it has been a source of further inspiration, projects and a deeper
+		appreciation of this modern art medium.
+	  </p>
+	  <!-- insert no frameworks graphic -->
+	  <svg width="100%" height="40vh">
+		<desc>
+		  A drawing of a hill with three signposts declaring saying "no bloat",
+		  "no frameworks" and "no dependencies".
+		</desc>
+		<image href="./assets/noFrameworks.svg"
+			   width="100%" height="100%"
+			   />
+	  </svg>
+	  <p>
+		Starting with little html skills and a fair aquintance with javascript
+		thanks to <a href="https://www.qt.io/">Qt and QML</a>. But JS for QML
+		and JS for the web has some significant differences. With QML most
+		of your javascript is simply going to be glue holding your elements,
+		with C++ implementations together, on the web javascript is less
+		of an adhesive and more a cohesive blob.
+	  </p>
+	  <p>
+		Armed with a vague memory most that javascript talks Youtube has recommended
+		to me was about framework so and so, I head to google. Find the <a href="https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_web_frameworks">Wikipedia</a>
+		comparison page and start opening some tabs. React is quickly disqualified
+		(<i>Meta</i> 🤮). With some apprehension I finally decide on <a href="https://www.angular.io/">Angular.</a>
+		I open some more tabs; close, figurativly, my eyes and take a dive into the
+		documentation.
+	  </p>
+	  <p>
+		Out of previous experience with Android and how shallow at times even
+		obscure Google's documentation can be, I didn't have high hopes but was
+		pleasantly surprised when I started reading. I still have some gripes,
+		but who cares 🎻.
+	  </p>
+	  <p>
+		After installing everything, working through some examples and playing
+		around a bit. It is decided I will use Angular. But living in a country🇿🇦
+		with intermittent electricity means intermittent internet; so I hit the
+		first snag. You can't create a new Angular workspace that is going to work
+		without being online.
+	  </p>
+	  <p>
+		A few commits later and a working skeleton, I noticed a mistake and
+		wanted to revert back a couple of commits. Since I haven't uploaded
+		anything to Github jet, and just in case, I create a backup.
+		<code>cp -r</code> gets called and thumbs
+		start twiddling. It takes too long. <code>Ctrl+C</code> and
+		<code>du -hs</code>. 500M 😮.
+	  </p>
+	  <p>
+		I realize that the actual build is only 280K. But still,
+		for every workspace that you create just to experiment with something
+		or just for fun/practice, you have 500M repeated across your disk.
+	  </p>
+	  <p>
+		Doubts started forming in my mind.
+		<ul>
+		  <li>Bloated workspace</li>
+		  <li>Too little semantics in the DOM.</li>
+		  <li>It takes forever to click through the tree to
+			where my components are.</li>
+		  <li>Angular.io tabs use too much RAM.</li>
+		  <li>How much am I really using?</li>
+		</ul>
+	  </p>
+	  <p>
+		Having in the mean time learned alot more javascript, played around
+		with Web Components and having <a href="https://www.erikkroes.nl/blog/i-made-this-website-with-html/">read</a>
+		I realized for my use case that I don't need Angular or any framework
+		really. Besides what is more personal than writing and designing
+		everything yourself. This page and the lines of code that make it
+		up is fully my own. With no dependencies besides the API's the browser
+		provides. I hope it provides something useful to you. Comments and
+		critique is always welcome.
+	  </p>
+	</section>
 
-<section id="author">
-  <h2>The author</h2>
-  <p>
-	
-  </p>
-</section>
+	<section id="author">
+	  <h2>The author</h2>
+	  <p>
+		
+	  </p>
+	</section>
+  </body>
+</html>

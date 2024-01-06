@@ -50,13 +50,35 @@ class ContentLoader extends HTMLElement {
 			})
 			.then((fragment) => {
 				const view = document.getElementById("contentView");
-				if (view)
-					view.innerHTML = fragment;
+				if (view) {
+					// view.innerHTML = fragment;
+					for (const child of [...view.children])
+						child.remove();
+					const parser = new DOMParser();
+					const dom = parser.parseFromString(fragment, "text/html");
+					for (let child of [...dom.querySelector("body").children])
+						view.append(document.adoptNode(child));
+					// console.log(fragment);
+					console.log(dom);
+				}
+				else {
+					throw new Error("Could not find contentView");
+				}
+
 			})
 			.catch((error) => {
 				console.error(`nav-bar: ${error} happened while ` +
 					`fetching: ${fragmentURL}`);
 			});
+	}
+	private clearView(): void {
+		const view = document.getElementById("contentView");
+		if (view) {
+			
+		}
+		else {
+			throw new Error("Could not find contentView");
+		}
 	}
 }
 
