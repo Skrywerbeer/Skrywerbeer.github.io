@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+
+  </head>
+
+  <body>
+	<article>
+	  <h2>A Geometric Geometric series.</h2>
+	  <p>
+		When initially introduced to geometric series your first thought might
+		be "where's the geometry?". Arithmetic series arithmetic kind of makes
+		sense, addition is part of arithmetic. But geometric?
+	  </p>
+	  <p>
+		The series
+		<math display="block">
+		  <munderover>
+			<mo largeop="true">&Sigma;</mo>
+			<mrow>
+			  <mi>n</mi>
+			  <mo>=</mo>
+			  <mn>0</mn>
+			</mrow>
+			<mn>∞</mn>
+		  </munderover>
+		  <msup>
+			<mi>x</mi>
+			<mi>n</mi>
+		  </msup>
+		  <mo>=</mo>
+		  <mn>1</mn>
+		  <mo>+</mo>
+		  <mi>x</mi>
+		  <mo>+</mo>
+		  <msup>
+			<mi>x</mi>
+			<mn>2</mn>
+		  </msup>
+		  <mo>+</mo>
+		  <mi>...</mi>
+		</math>
+		is convergent if the common ratio
+		<math>
+		  <mrow>
+			<mo>|</mo>
+			<mi>x</mi>
+			<mo>|</mo>
+		  </mrow>
+		  <mo>&lt</mo>
+		  <mn>1</mn>
+		</math>
+		. Is there a function with a strong connection to geometry has a range
+		 that falls within this interval?
+	  </p>
+	  <h3>The case <math><mn>0</mn><mo>&lt</mo><mi>x</mi><mo>&lt</mo><mn>1</mn></h3>
+	  <svg viewBox="0 0 2048 512">
+		<image href="./mathematics/cosineSeries.svg" width="80%" x="10%" />
+	  </svg>
+	  <p>
+		Consider the figure above that is easily constructed with compass and
+		straigtedge. Start with a horizontal line. Upon this construct a right
+		angled triangle with a hypotenuse of length 1. The base of the triangle
+		is then
+		<math>
+		  <mrow>
+			<mi>cos</mi>
+			<mi>Θ</mi>
+		  </mrow>
+		</math>. Taking this as the length
+		for the hypotenuse of a second triangle with a base of length
+		<math>
+		  <mrow>
+			<msup>
+			  <mi>cos</mi>
+			  <mn>2</mn>
+			</msup>
+			<mi>Θ</mi>
+		  </mrow>
+		</math>
+		. A line drawn through the vertices of the triangles intersects the
+		horizontal line at <math><mi>P</mi></math>. With this line a triangle
+		with a base of length 1 can be constructed to the left of the first.
+	  </p>
+	  <p>
+		The sum of the triangle's bases is then
+		<math>
+
+		  <munderover>
+			<mo largeop="true">&Sigma;</mo>
+			<mrow>
+			  <mi>n</mi>
+			  <mo>=</mo>
+			  <mn>0</mn>
+			</mrow>
+			<mi>∞</mi>
+		  </munderover>
+			<msup>
+			  <mi>cos</mi>
+			  <mi>n</mi>
+			</msup>
+			<mi>Θ</mi>
+			<mo>=</mo>
+			<mn>1</mn>
+			<mo>+</mo>
+			<mi>cos</mi>
+			<mi>Θ</mi>
+			<mo>+</mo>
+			<msup>
+			  <mi>cos</mi>
+			  <mn>2</mn>
+			</msup>
+			<mi>Θ</mi>
+			<mo>+</mo>
+			<mi>...</mi>
+		</math>
+		a geometric series with common ratio
+		<math>
+		  <mi>cos</mi>
+		  <mi>Θ</mi>
+		</math>
+	  </p>
+	  
+	  <h3>The case <math><mn>-1</mn><mo>&lt</mo><mi>x</mi><mo>&lt</mo><mn>0</mn></h3>
+	  <p>
+		TODO
+	  </p>
+	</article>
+  </body>
+</html>
