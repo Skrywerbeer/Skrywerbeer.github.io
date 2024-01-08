@@ -283,7 +283,7 @@
     </g>
     <animate
        begin="0s; fadeIn4.end+500ms"
-       dur="0"
+       dur="100ms"
        id="sync"
        repeatCount="1" />
   </g>
