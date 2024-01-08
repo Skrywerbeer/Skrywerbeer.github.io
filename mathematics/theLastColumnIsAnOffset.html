@@ -6,17 +6,11 @@
 	<article>
 	  <h3>Don't call the last column a multiplier</h3>
 	  <p>
-		This is just a small rant about a matrix misnomer I came across.
-		For the sake discretion, everything considered is hypothetical.
+		When I started reading up on &ltfeColorMatrix&gt I came across this
+		<a href="https://alistapart.com/article/finessing-fecolormatrix/">article</a>
+		where they had a figure similiar to this one.
 	  </p>
-	  <p>
-		During the course of reading tutorials on SVG filters, eventually you'll
-		start reading up on &ltfeColorMatrix&gt and depending on the source of
-		the article you choose to read they might have an illustration of the
-		transformation matrix that you feed &ltfeColorMatrix&gt. It might look
-		something like this.
-	  </p>
-	  <math>
+	  <math display="block">
 		<mrow>
 		  <mo>[</mo>
 		  <mtable>
@@ -165,7 +159,7 @@
 		that last label should bother you. Consider the full equation of the
 		transformation that &ltfeColorMatrix&gt applies.
 	  </p>
-	  <math>
+	  <math display="block">
 		<mrow>
 		  <mo>[</mo>
 		  <mtable>
@@ -339,11 +333,191 @@
 	  </math>
 	  <p>
 		While the column labeled multiplier does indeed get multipled by 1.
-		The entries themself are not multiplied with the original color;
-		they simply contribute a fixed amount to the final amount to the
-		final pixel color. Instead of calling that last column a "multiplier",
-		call it an offset because that is what it does.
+		Beyond that the last column is simply added to the final color; because
+		the final color is a linear combinatation of the columns vectors of the
+		transformation matrix weighted by the components of the input color.
 	  </p>
+	  <math display="block">
+		<mrow>
+		  <mo>[</mo>
+		  <mtable>
+			<mtr><mtd>R′</mtd></mtr>
+			<mtr><mtd>G′</mtd></mtr>
+			<mtr><mtd>B′</mtd></mtr>
+			<mtr><mtd>A′</mtd></mtr>
+			<mtr><mtd>1</mtd></mtr>
+		  </mtable>
+		  <mo>]</mo>
+		  <mo>=</mo>
+		  <mi>R</mi>
+		  <mo>&times;</mo>
+		  <mo>[</mo>
+		  <mtable>
+			<mtr>
+			  <msub>
+				<mi>r</mi>
+				<mn>11</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>g</mi>
+				<mn>11</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>b</mi>
+				<mn>11</mn>
+			  </msub>
+			</mtr>
+		  <mtr>
+			  <msub>
+				<mi>a</mi>
+				<mn>11</mn>
+			  </msub>
+		  </mtr>
+		  <mtr>
+			<mn>0</mn>
+		  </mtr>
+		  </mtable>
+		  <mo>]</mo>
+		  <mo>+</mo>
+		  <mi>G</mi>
+		  <mo>&times;</mo>
+		  <mo>[</mo>
+		  <mtable>
+			<mtr>
+			  <msub>
+				<mi>r</mi>
+				<mn>12</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>g</mi>
+				<mn>12</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>b</mi>
+				<mn>12</mn>
+			  </msub>
+			</mtr>
+		  <mtr>
+			  <msub>
+				<mi>a</mi>
+				<mn>12</mn>
+			  </msub>
+		  </mtr>
+		  <mtr>
+			<mn>0</mn>
+		  </mtr>
+		  </mtable>
+		  <mo>]</mo>
+		  <mo>+</mo>
+		  <mi>B</mi>
+		  <mo>&times;</mo>
+		  <mo>[</mo>
+		  <mtable>
+			<mtr>
+			  <msub>
+				<mi>r</mi>
+				<mn>13</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>g</mi>
+				<mn>13</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>b</mi>
+				<mn>13</mn>
+			  </msub>
+			</mtr>
+		  <mtr>
+			  <msub>
+				<mi>a</mi>
+				<mn>13</mn>
+			  </msub>
+		  </mtr>
+		  <mtr>
+			<mn>0</mn>
+		  </mtr>
+		  </mtable>
+		  <mo>]</mo>
+		  <mo>+</mo>
+		  <mi>A</mi>
+		  <mo>&times;</mo>
+		  <mo>[</mo>
+		  <mtable>
+			<mtr>
+			  <msub>
+				<mi>r</mi>
+				<mn>14</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>g</mi>
+				<mn>14</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>b</mi>
+				<mn>14</mn>
+			  </msub>
+			</mtr>
+		  <mtr>
+			  <msub>
+				<mi>a</mi>
+				<mn>14</mn>
+			  </msub>
+		  </mtr>
+		  <mtr>
+			<mn>0</mn>
+		  </mtr>
+		  </mtable>
+		  <mo>]</mo>
+		  <mo>+</mo>
+		  <mo>[</mo>
+		  <mtable>
+			<mtr>
+			  <msub>
+				<mi>r</mi>
+				<mn>15</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>g</mi>
+				<mn>15</mn>
+			  </msub>
+			</mtr>
+			<mtr>
+			  <msub>
+				<mi>b</mi>
+				<mn>15</mn>
+			  </msub>
+			</mtr>
+		  <mtr>
+			  <msub>
+				<mi>a</mi>
+				<mn>15</mn>
+			  </msub>
+		  </mtr>
+		  <mtr>
+			<mn>1</mn>
+		  </mtr>
+		  </mtable>
+		  <mo>]</mo>
+		</mrow>
+	  </math>
 	</article>
   </body>
 </html>
