@@ -117,7 +117,6 @@
 
   <script>
 	<![CDATA[
-		console.log("helo")
 		const svg = document.querySelector("svg");
 		const trans = svg.getScreenCTM().inverse();
 
