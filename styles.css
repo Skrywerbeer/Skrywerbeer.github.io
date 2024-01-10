@@ -201,7 +201,7 @@ svg.graph {
 	/* border: 2px solid #333333; */
 	/* border-bottom: 4px solid #111111; */
 	background: linear-gradient(to bottom right, #0a0a22, #050505);
-
+	stroke-width: 2%;
 }
 
 code {
