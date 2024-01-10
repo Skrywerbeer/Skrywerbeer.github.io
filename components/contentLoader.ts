@@ -15,7 +15,6 @@ class InternalLink extends HTMLAnchorElement {
 	connectedCallback() {
 		const loader = document.querySelector("content-loader") as ContentLoader;
 		this.addEventListener("click", loader.loadFragment);
-		// this.addEventListener("click", loader.loadHook);
 	}
 }
 customElements.define("internal-link", InternalLink, {extends: "a"});
@@ -29,20 +28,18 @@ class ContentLoader extends HTMLElement {
 		this.style.display = "none";
 		window.addEventListener("popstate", this.loadFragment);
 		window.addEventListener("load", this.loadFragment);
-		// window.addEventListener("popstate", this.loadHook);
-		// window.addEventListener("load", this.loadHook);
 	}
 	private disconnectedCallback(): void {
 		window.removeEventListener("popstate", this.loadFragment);
 		window.removeEventListener("load", this.loadFragment);
-		// window.removeEventListener("popstate", this.loadHook);
-		// window.removeEventListener("load", this.loadHook);
 	}
 	public loadFragment(): void {
 		// TODO: add error and timeout handling.
 		const docURL = new URL(document.URL);
 		let fragmentURL = docURL.searchParams.get("page");
-		fetch(((fragmentURL !== null) ? fragmentURL : "home.html"))
+		if (fragmentURL === null)
+			fragmentURL = "home.html"
+		fetch(fragmentURL)
 			.then((response) => {
 				// TODO: load 404 error page.
 				if (!response.ok)
@@ -53,15 +50,17 @@ class ContentLoader extends HTMLElement {
 			.then((fragment) => {
 				const view = document.getElementById("contentView");
 				if (view) {
-					for (const child of [...view.children])
-						child.remove();
+					const loader = document.querySelector("content-loader") as ContentLoader;
+					if (!loader)
+						throw new Error("Could not find content-loader");
+					loader.clearView(view);
 					const parser = new DOMParser();
 					const dom = parser.parseFromString(fragment, "text/html");
 					const body = dom.querySelector("body");
 					if (body)
 						for (let child of [...body.children])
 							view.append(document.adoptNode(child));
-					document.querySelector("content-loader").loadHook();
+					view.append(loader.createHookFrom(fragmentURL.replace(".html", ".js")));
 				}
 				else {
 					throw new Error("Could not find contentView");
@@ -72,19 +71,14 @@ class ContentLoader extends HTMLElement {
 					`fetching: ${fragmentURL}`);
 			});
 	}
-	public loadHook(): void {
-		const docURL = new URL(document.URL);
-		let fragmentURL = docURL.searchParams.get("page");
-		if (!fragmentURL)
-			fragmentURL = "home.html";
-		const hookURL = fragmentURL.replace(".html", ".js");
+	public clearView(view: HTMLElement): void {
+		for (const child of [...view.children])
+			child.remove();
+	}
+	public createHookFrom(url: string): HTMLScriptElement {
 		const script = document.createElement("script");
-		script.setAttribute("src", hookURL);
-		const view = document.getElementById("contentView");
-		if (view)
-			view.append(script);
-		else
-			throw new Error("Could not find contentView");
+		script.setAttribute("src", url);
+		return script;
 	}
 }
 

@@ -32,7 +32,9 @@ class ContentLoader extends HTMLElement {
     loadFragment() {
         const docURL = new URL(document.URL);
         let fragmentURL = docURL.searchParams.get("page");
-        fetch(((fragmentURL !== null) ? fragmentURL : "home.html"))
+        if (fragmentURL === null)
+            fragmentURL = "home.html";
+        fetch(fragmentURL)
             .then((response) => {
             if (!response.ok)
                 throw new Error("content-loader: Failed to fetch fragment, " +
@@ -42,15 +44,17 @@ class ContentLoader extends HTMLElement {
             .then((fragment) => {
             const view = document.getElementById("contentView");
             if (view) {
-                for (const child of [...view.children])
-                    child.remove();
+                const loader = document.querySelector("content-loader");
+                if (!loader)
+                    throw new Error("Could not find content-loader");
+                loader.clearView(view);
                 const parser = new DOMParser();
                 const dom = parser.parseFromString(fragment, "text/html");
                 const body = dom.querySelector("body");
                 if (body)
                     for (let child of [...body.children])
                         view.append(document.adoptNode(child));
-                document.querySelector("content-loader").loadHook();
+                view.append(loader.createHookFrom(fragmentURL.replace(".html", ".js")));
             }
             else {
                 throw new Error("Could not find contentView");
@@ -61,19 +65,14 @@ class ContentLoader extends HTMLElement {
                 `fetching: ${fragmentURL}`);
         });
     }
-    loadHook() {
-        const docURL = new URL(document.URL);
-        let fragmentURL = docURL.searchParams.get("page");
-        if (!fragmentURL)
-            fragmentURL = "home.html";
-        const hookURL = fragmentURL.replace(".html", ".js");
+    clearView(view) {
+        for (const child of [...view.children])
+            child.remove();
+    }
+    createHookFrom(url) {
         const script = document.createElement("script");
-        script.setAttribute("src", hookURL);
-        const view = document.getElementById("contentView");
-        if (view)
-            view.append(script);
-        else
-            throw new Error("Could not find contentView");
+        script.setAttribute("src", url);
+        return script;
     }
 }
 customElements.define("content-loader", ContentLoader);
