@@ -15,6 +15,7 @@ class InternalLink extends HTMLAnchorElement {
 	connectedCallback() {
 		const loader = document.querySelector("content-loader") as ContentLoader;
 		this.addEventListener("click", loader.loadFragment);
+		// this.addEventListener("click", loader.loadHook);
 	}
 }
 customElements.define("internal-link", InternalLink, {extends: "a"});
@@ -23,62 +24,67 @@ class ContentLoader extends HTMLElement {
 	constructor() {
 		super();
 		this.attachShadow({mode: "open"});
-
 	}
 	private connectedCallback(): void {
 		this.style.display = "none";
 		window.addEventListener("popstate", this.loadFragment);
 		window.addEventListener("load", this.loadFragment);
+		// window.addEventListener("popstate", this.loadHook);
+		// window.addEventListener("load", this.loadHook);
 	}
 	private disconnectedCallback(): void {
 		window.removeEventListener("popstate", this.loadFragment);
 		window.removeEventListener("load", this.loadFragment);
+		// window.removeEventListener("popstate", this.loadHook);
+		// window.removeEventListener("load", this.loadHook);
 	}
 	public loadFragment(): void {
 		// TODO: add error and timeout handling.
 		const docURL = new URL(document.URL);
 		let fragmentURL = docURL.searchParams.get("page");
-		// if (fragmentURL === null)
-		// 	throw new Error("nav-bar: document url misformed.");
 		fetch(((fragmentURL !== null) ? fragmentURL : "home.html"))
 			.then((response) => {
 				// TODO: load 404 error page.
 				if (!response.ok)
-					throw new Error("nav-bar: Failed to fetch fragment, " +
+					throw new Error("content-loader: Failed to fetch fragment, " +
 						`response returned ${response.status}`);
 				return response.text();
 			})
 			.then((fragment) => {
 				const view = document.getElementById("contentView");
 				if (view) {
-					// view.innerHTML = fragment;
 					for (const child of [...view.children])
 						child.remove();
 					const parser = new DOMParser();
 					const dom = parser.parseFromString(fragment, "text/html");
-					for (let child of [...dom.querySelector("body").children])
-						view.append(document.adoptNode(child));
-					// console.log(fragment);
-					console.log(dom);
+					const body = dom.querySelector("body");
+					if (body)
+						for (let child of [...body.children])
+							view.append(document.adoptNode(child));
+					document.querySelector("content-loader").loadHook();
 				}
 				else {
 					throw new Error("Could not find contentView");
 				}
-
 			})
 			.catch((error) => {
-				console.error(`nav-bar: ${error} happened while ` +
+				console.error(`content-loader: ${error} happened while ` +
 					`fetching: ${fragmentURL}`);
 			});
 	}
-	private clearView(): void {
+	public loadHook(): void {
+		const docURL = new URL(document.URL);
+		let fragmentURL = docURL.searchParams.get("page");
+		if (!fragmentURL)
+			fragmentURL = "home.html";
+		const hookURL = fragmentURL.replace(".html", ".js");
+		const script = document.createElement("script");
+		script.setAttribute("src", hookURL);
 		const view = document.getElementById("contentView");
-		if (view) {
-			
-		}
-		else {
+		if (view)
+			view.append(script);
+		else
 			throw new Error("Could not find contentView");
-		}
 	}
 }
 

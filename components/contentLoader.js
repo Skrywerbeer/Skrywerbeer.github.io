@@ -35,7 +35,7 @@ class ContentLoader extends HTMLElement {
         fetch(((fragmentURL !== null) ? fragmentURL : "home.html"))
             .then((response) => {
             if (!response.ok)
-                throw new Error("nav-bar: Failed to fetch fragment, " +
+                throw new Error("content-loader: Failed to fetch fragment, " +
                     `response returned ${response.status}`);
             return response.text();
         })
@@ -46,26 +46,34 @@ class ContentLoader extends HTMLElement {
                     child.remove();
                 const parser = new DOMParser();
                 const dom = parser.parseFromString(fragment, "text/html");
-                for (let child of [...dom.querySelector("body").children])
-                    view.append(document.adoptNode(child));
-                console.log(dom);
+                const body = dom.querySelector("body");
+                if (body)
+                    for (let child of [...body.children])
+                        view.append(document.adoptNode(child));
+                document.querySelector("content-loader").loadHook();
             }
             else {
                 throw new Error("Could not find contentView");
             }
         })
             .catch((error) => {
-            console.error(`nav-bar: ${error} happened while ` +
+            console.error(`content-loader: ${error} happened while ` +
                 `fetching: ${fragmentURL}`);
         });
     }
-    clearView() {
+    loadHook() {
+        const docURL = new URL(document.URL);
+        let fragmentURL = docURL.searchParams.get("page");
+        if (!fragmentURL)
+            fragmentURL = "home.html";
+        const hookURL = fragmentURL.replace(".html", ".js");
+        const script = document.createElement("script");
+        script.setAttribute("src", hookURL);
         const view = document.getElementById("contentView");
-        if (view) {
-        }
-        else {
+        if (view)
+            view.append(script);
+        else
             throw new Error("Could not find contentView");
-        }
     }
 }
 customElements.define("content-loader", ContentLoader);
