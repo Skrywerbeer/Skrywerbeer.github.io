@@ -13,7 +13,7 @@
 	"files": [
 		"components/contentLoader.ts",
 		"components/slideshow.ts",
-		"gallery_loadingIndicators.ts",
+		"gallery.ts",
 		"webcomponents_gameOfLife.ts",
 	]
 }
