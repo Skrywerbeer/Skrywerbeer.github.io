@@ -1,21 +1,28 @@
-#loadingIndicators div {
-	display: flex;
-	flex-direction: row;
-	align-content: center;
-	justify-content: space-around;
-}
-
-#loadingIndicators object[is="slide-show"] {
-	width: 30%;
-	min-width: 30%;
-	height: 30%;
-	min-height: 30%;
-	border: double black 12px;
-	border-radius: 4px;
-}
-
-#loadingIndicators div button {
-	margin-top: 15%;
-	margin-bottom: 15%;
-	font-size: 3em;
+#loadingIndicators {
+	
+	div {
+		display: flex;
+		flex-direction: row;
+		align-content: center;
+		justify-content: space-around;
+	}
+	object[is="slide-show"] {
+		width: 30%;
+		min-width: 30%;
+		height: 30%;
+		min-height: 30%;
+		border: double black 12px;
+		border-radius: 4px;
+	}
+	button {
+		margin-top: 15%;
+		margin-bottom: 15%;
+		font-size: 24pt;
+	}
+	button:first-of-type {
+		margin-left: 10%;
+	}
+	button:last-of-type {
+		margin-right: 10%;
+	}
 }
