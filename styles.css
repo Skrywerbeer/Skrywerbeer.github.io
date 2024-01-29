@@ -197,11 +197,29 @@ div.graphLayout {
 }
 
 svg.graph {
-	aspect-ratio: 1 / 1;
 	/* border: 2px solid #333333; */
 	/* border-bottom: 4px solid #111111; */
 	background: linear-gradient(to bottom right, #0a0a22, #050505);
 	stroke-width: 2%;
+}
+
+div.svgLayout {
+	min-width: 100%;
+	display: flex;
+	justify-content: center;
+
+	svg {
+		aspect-ratio: 1.618;
+		box-shadow: 0px 10px 5px black;
+		width: 50%;
+		stroke-width: 2%;
+		stroke: #222222;
+		stroke-linecap: round;
+
+		rect {
+			stroke-width: 1%;
+		}
+	}
 }
 
 code {
