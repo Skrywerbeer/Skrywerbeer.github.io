@@ -13,347 +13,415 @@
 		folding this plane a few constructions can be done much faster than with
 		a ruler and compass.
 	  </p>
-	  <h3>Bisection</h3>
-	  <div class="svgLayout">
-		<svg viewBox="0 0 10 10" preserveAspectRatio="xMidYMid slice">
-		  <title>Halving an interval.</title>
-		  <desc>
-			An animated drawing of folding a line in two.
-		  </desc>
-		  <line x1="2" y1="5"
-				x2="5" y2="5"
+	  <section>
+		<h3>Bisection</h3>
+		<div class="svgLayout">
+		  <svg viewBox="0 0 10 10" preserveAspectRatio="xMidYMid slice">
+			<title>Halving an interval.</title>
+			<desc>
+			  An animated drawing of folding a line in two.
+			</desc>
+			<line x1="2" y1="5"
+				  x2="5" y2="5"
+				  />
+			<line x1="5" y1="5"
+				  x2="8" y2="5"
+				  >
+			  <animateTransform
+				id="rotation1"
+				attributeName="transform"
+				type="rotate"
+				values="0 5 5; -180 5 5; -180 5 5; 0 5 5"
+				dur="4s"
+				begin="2s; rotation1.end + 1s"
+				fill="freeze"
 				/>
-		  <line x1="5" y1="5"
-				x2="8" y2="5"
-				>
-			<animateTransform
-			  id="rotation1"
-			  attributeName="transform"
-			  type="rotate"
-			  values="0 5 5; -180 5 5; -180 5 5; 0 5 5"
-			  dur="4s"
-			  begin="2s; rotation1.end + 1s"
-			  fill="freeze"
-			  />
-			<animate
-			  attributeName="opacity"
-			  values="1; 0.6; 0.6; 1"
-			  dur="4s"
-			  begin="rotation1.begin"
-			  />
-			<set
-			  attributeName="stroke"
-			  to="blue"
-			  end="rotation1.end"
-			  begin="rotation1.begin - 200ms"
-			  />
-		</svg>
-	  </div>
-	  <p>
-		The middle of a line segment is that point of the segment that divides
-		it into two parts of equal length. How can you check if the two lengths
-		are the same? Two line segments have the same length if their end
-		points, possiblly through a rotation of one of the segments, can be made
-		to conincide. And if you fold something neatly in two you do so by
-		bringing the two ends together and making sure the fold forms where both
-		parts are of the same length. The same thing works on anywhere on a
-		sheet of paper Any line segment on a sheet can be bisected just by
-		bringing the ends together not just the edges of the sheet.
-	  </p>
-	  <div class="svgLayout">
-		<svg viewBox="0 0 10 10" preserveAspectRatio="xMidYMid slice">
-		  <title>Halving an angle.</title>
-		  <desc>
-			An animated drawing of folding an angle in half.
-		  </desc>
-		  <line x1="1" y1="5"
-				x2="8" y2="3"
+			  <animate
+				attributeName="opacity"
+				values="1; 0.6; 0.6; 1"
+				dur="4s"
+				begin="rotation1.begin"
 				/>
-		  <line x1="1" y1="5"
-				x2="8" y2="7"
+			  <set
+				attributeName="stroke"
+				to="blue"
+				end="rotation1.end"
+				begin="rotation1.begin - 200ms"
 				/>
-		  <line x1="1" y1="5"
-				x2="8" y2="5"
-				/>
-		  <!-- TODO: animate -->
-		</svg>
-	  </div>
-	  <p>
-		Angles can be bisected by a similar argument. By folding the two lines
-		that define the angle so that they conincide at everypoint, the crease
-		forms where the two lines diverge from the crease at equal rates, the
-		crease is of equal distance to both lines. The crease is then that line
-		that bisects the angle.
-	  </p>
-	  <h3><math><mo>&Sigma;</mo><msup><mn>2</mn><mi>n</mi></msup></math></h3>
-	  <p>
-		I think if Zeno had some scrap paper he might have felt differently
-		about his paradox. Consider the infinite sum.
-		<math display="block" math-style="normal">
-		  <munderover>
-			<mo largeop="true">&sum;</mo>
-			<mrow>
-			  <mi>n</mi>
-			  <mo>=</mo>
-			  <mn>0</mn>
-			</mrow>
-			<mi>&infin;</mi>
-		  </munderover>
-		  <msup>
-			<mn>2</mn>
-			<mi>n</mi>
-		  </msup>
-		  <mo>=</mo>
-		  <mn>1</mn>
-		  <mo>+</mo>
-		  <mfrac><mn>1</mn><mn>2</mn></mfrac>
-		  <mo>+</mo>
-		  <mfrac><mn>1</mn><mn>4</mn></mfrac>
-		  <mo>+</mo>
-		  <mi>&hellip;</mi>
-		</math>
-		A physical analogy could be something like a turtle chasing a
-		centurion. Our intrepid turtle unencumbered by fancy armour runs faster
-		than the Roman and will cover half the distance between them in some
-		unit of time
-		<math><msub><mi>t</mi><mn>0</mn></msub></math>.
-		Again for the new distance between them, you can find a time
-		<math><msub><mi>t</mi><mn>1</mn></msub></math>
-		in which the turtle
-		will move half this new distance towards his target. Ad infinitum.
-	  </p>
-	  <div class="svgLayout">
-		<svg viewBox="0 0 10 10" preserveAspectRatio="xMidYMid slice" id="root">
-		  <title>Repeated folding of halves.</title>
-		  <desc>
-			An animated drawing of iterativly folding half of a rectangle into
-			futher halves.
-		  </desc>
-		  <animate
-			id="zenoSync"
-			attributeName=""
-			dur="8s"
-			begin="0s; zenoSync.end"
-			/>
-		  <rect
-			fill="none"
-			x="1"
-			y="4"
-			width="8"
-			height="2"
-			/>
-		  <rect
-			fill="none"
-			opacity="0"
-			x="5"
-			y="4"
-			width="4"
-			height="2"
-			>
-			<animate
-			  attributeName="opacity"
-			  from="0"
-			  to="1"
-			  dur="1s"
-			  begin="zenoSync.begin + 1s"
-			  fill="freeze"
-			  />
-			<set attributeName="opacity"
-				 to="0"
-				 fill="freeze"
-				 begin="zenoSync.begin"
-				 />
-		  </rect>
-		  <rect
-			fill="none"
-			opacity="0"
-			x="7"
-			y="4"
-			width="2"
-			height="2"
-			>
-			<animate
-			  attributeName="opacity"
-			  from="0"
-			  to="1"
-			  dur="1s"
-			  begin="zenoSync.begin + 2s"
-			  fill="freeze"
-			  />
-			<set attributeName="opacity"
-				 to="0"
-				 fill="freeze"
-				 begin="zenoSync.begin"
-				 />
-		  </rect>
-		  <rect
-			fill="none"
-			opacity="0"
-			x="8"
-			y="4"
-			width="1"
-			height="2"
-			>
-			<animate
-			  attributeName="opacity"
-			  from="0"
-			  to="1"
-			  dur="1s"
-			  begin="zenoSync.begin + 3s"
-			  fill="freeze"
-			  />
-			<set attributeName="opacity"
-				 to="0"
-				 fill="freeze"
-				 begin="zenoSync.begin"
-				 />
-		  </rect>
-		  <rect
-			fill="none"
-			opacity="0"
-			x="8.5"
-			y="4"
-			width="0.5"
-			height="2"
-			>
-			<animate
-			  attributeName="opacity"
-			  from="0"
-			  to="1"
-			  dur="1s"
-			  begin="zenoSync.begin + 4s"
-			  fill="freeze"
-			  />
-			<set attributeName="opacity"
-				 to="0"
-				 fill="freeze"
-				 begin="zenoSync.begin"
-				 />
-		  </rect>
-		</svg>
-	  </div>
-	  <p>
-		The sum is obvious just by taking a piece of paper and arbitrarily
-		defining it as having a length of <math><mn>2</mn></math> units; folding
-		it in half and then folding one of those halves in half and continuously
-		folding as many times as you want each time folding the half on the end
-		into two more halves. No matter how many folds you can fit in the strip
-		will still have length two.
-	  </p>
-	  <h3>The better third</h3>
-	  <div class="svgLayout">
-		<svg viewBox="0 0 10 10" preserveAspectRatio="xMidYMid slice">
-		  <title>
-		  </title>
-		  <animate
-			id="thirdsSync"
-			attributeName=""
-			dur="4s"
-			begin="0s; thirdsSync.end"
-			/>
-		  <rect
-			fill="none"
-			x="1"
-			y="4"
-			width="8"
-			height="2"
-			/>
-		</svg>
-	  </div>
-	  <p>
-		Dividing into thirds is not as easy as halving. While it is possible
-		to fold something into three by carefully repositioning the two folds
-		as you fold. It is not nearly as simple as just clamping the ends together and evening things up.
-		Luckily there is a away to trisect by bisecting.
-	  </p>
-	  <p>
-		To start you take your very best guess at how long a third is, but no
-		matter how good your guess,
-		<math><msub><mi>T</mi><mn>0</mn></msub></math>
-		, is it is going to be off by a small amount
-		<math>
-		  <mrow>
-			<mo>|</mo>
-			<mi>&epsilon;</mi>
-			<mo>|</mo>
-		  </mrow>
-		  <mo>&gt</mo>
-		  <mn>0</mn>
-		</math>.
-		<math display="block">
-		  <msub>
-			<mi>T</mi>
-			<mn>0</mn>
-		  </msub>
-		  <mo>=</mo>
-		  <mfrac>
-			<mn>1</mn>
-			<mn>3</mn>
-		  </mfrac>
-		  <mo>+</mo>
-		  <mi>&epsilon;</mi>
-		</math>
-		The bit leftover is then of length
-		<math display="block">
-		  <mfrac>
-			<mn>2</mn>
-			<mn>3</mn>
-		  </mfrac>
-		  <mo>-</mo>
-		  <mi>&epsilon;</mi>
-		</math>
-		Dividing this in half yields
-		<math display="block">
-		  <msub>
-			<mi>T</mi>
-			<mn>1</mn>
-		  </msub>
-		  <mo>=</mo>
-		  <mfrac>
-			<mn>1</mn>
-			<mn>3</mn>
-		  </mfrac>
-		  <mo>-</mo>
-		  <mfrac>
-			<mi>&epsilon;</mi>
-			<mn>2</mn>
-		  </mfrac>
-		</math>
-		Through one simple step your error has been halved. And this can be
-		repeated
-		<math display="block">
-		  <msub>
-			<mi>T</mi>
-			<mi>n</mi>
-		  </msub>
-		  <mo>=</mo>
-		  <mfrac>
-			<mn>1</mn>
-			<mn>3</mn>
-		  </mfrac>
-		  <mo>&pm;</mo>
-		  <mfrac>
-			<mi>&epsilon;</mi>
+		  </svg>
+		</div>
+		<p>
+		  The middle of a line segment is that point of the segment that divides
+		  it into two parts of equal length. How can you check if the two
+		  lengths are the same? Two line segments have the same length if their
+		  end points, possiblly through a rotation of one of the segments, can
+		  be made to conincide. And if you fold something neatly in two you do
+		  so by bringing the two ends together and making sure the fold forms
+		  where both parts are of the same length. The same thing works on
+		  anywhere on a sheet of paper Any line segment on a sheet can be
+		  bisected just by bringing the ends together not just the edges of the
+		  sheet.
+		</p>
+		<div class="svgLayout">
+		  <svg viewBox="0 0 10 10" preserveAspectRatio="xMidYMid slice">
+			<title>Halving an angle.</title>
+			<desc>
+			  An animated drawing of folding an angle in half.
+			</desc>
+			<line x1="1" y1="5"
+				  x2="8" y2="3"
+				  />
+			<line x1="1" y1="5"
+				  x2="8" y2="7"
+				  />
+			<line x1="1" y1="5"
+				  x2="8" y2="5"
+				  />
+			<!-- TODO: animate -->
+		  </svg>
+		</div>
+		<p>
+		  Angles can be bisected by a similar argument. By folding the two lines
+		  that define the angle so that they conincide at everypoint, the crease
+		  forms where the two lines diverge from the crease at equal rates, the
+		  crease is of equal distance to both lines. The crease is then that
+		  line that bisects the angle.
+		</p>
+	  </section>
+	  <section>
+		<h3><math><mo>&Sigma;</mo><msup><mn>2</mn><mi>n</mi></msup></math></h3>
+		<p>
+		  I think if Zeno had some scrap paper he might have felt differently
+		  about his paradox. Consider the infinite sum.
+		  <math display="block" math-style="normal">
+			<munderover>
+			  <mo largeop="true">&sum;</mo>
+			  <mrow>
+				<mi>n</mi>
+				<mo>=</mo>
+				<mn>0</mn>
+			  </mrow>
+			  <mi>&infin;</mi>
+			</munderover>
 			<msup>
 			  <mn>2</mn>
 			  <mi>n</mi>
 			</msup>
-		  </mfrac>
-		</math>
-		With the sign determined by whether your number of iterations is even or odd.
-		The thing that matters is that
-		<math>
-		  <mi>&epsilon;</mi>
-		  <mo>&rarr;</mo>
-		  <mn>0</mn>
-		</math>
-		as
-		<math>
-		  <mi>n</mi>
-		  <mo>&rarr;</mo>
-		  <mi>&infin;</mi>
-		</math>
-	  </p>
+			<mo>=</mo>
+			<mn>1</mn>
+			<mo>+</mo>
+			<mfrac><mn>1</mn><mn>2</mn></mfrac>
+			<mo>+</mo>
+			<mfrac><mn>1</mn><mn>4</mn></mfrac>
+			<mo>+</mo>
+			<mi>&hellip;</mi>
+		  </math>
+		  A physical analogy could be something like a turtle chasing a
+		  centurion. Our intrepid turtle unencumbered by fancy armour runs
+		  faster than the Roman and will cover half the distance between them in
+		  some unit of time
+		  <math><msub><mi>t</mi><mn>0</mn></msub></math>.
+		  Again for the new distance between them, you can find a time
+		  <math><msub><mi>t</mi><mn>1</mn></msub></math>
+		  in which the turtle
+		  will move half this new distance towards his target. Ad infinitum.
+		</p>
+		<div class="svgLayout">
+		  <svg viewBox="0 0 10 10" preserveAspectRatio="xMidYMid slice">
+			<title>Repeated folding of halves.</title>
+			<desc>
+			  An animated drawing of iterativly folding half of a rectangle into
+			  futher halves.
+			</desc>
+			<animate
+			  id="zenoSync"
+			  attributeName=""
+			  dur="8s"
+			  begin="0s; zenoSync.end"
+			  />
+			<rect
+			  fill="none"
+			  x="1"
+			  y="4"
+			  width="8"
+			  height="2"
+			  />
+			<rect
+			  fill="none"
+			  opacity="0"
+			  x="5"
+			  y="4"
+			  width="4"
+			  height="2"
+			  >
+			  <animate
+				attributeName="opacity"
+				from="0"
+				to="1"
+				dur="1s"
+				begin="zenoSync.begin + 1s"
+				fill="freeze"
+				/>
+			  <set attributeName="opacity"
+				   to="0"
+				   fill="freeze"
+				   begin="zenoSync.begin"
+				   />
+			</rect>
+			<rect
+			  fill="none"
+			  opacity="0"
+			  x="7"
+			  y="4"
+			  width="2"
+			  height="2"
+			  >
+			  <animate
+				attributeName="opacity"
+				from="0"
+				to="1"
+				dur="1s"
+				begin="zenoSync.begin + 2s"
+				fill="freeze"
+				/>
+			  <set attributeName="opacity"
+				   to="0"
+				   fill="freeze"
+				   begin="zenoSync.begin"
+				   />
+			</rect>
+			<rect
+			  fill="none"
+			  opacity="0"
+			  x="8"
+			  y="4"
+			  width="1"
+			  height="2"
+			  >
+			  <animate
+				attributeName="opacity"
+				from="0"
+				to="1"
+				dur="1s"
+				begin="zenoSync.begin + 3s"
+				fill="freeze"
+				/>
+			  <set attributeName="opacity"
+				   to="0"
+				   fill="freeze"
+				   begin="zenoSync.begin"
+				   />
+			</rect>
+			<rect
+			  fill="none"
+			  opacity="0"
+			  x="8.5"
+			  y="4"
+			  width="0.5"
+			  height="2"
+			  >
+			  <animate
+				attributeName="opacity"
+				from="0"
+				to="1"
+				dur="1s"
+				begin="zenoSync.begin + 4s"
+				fill="freeze"
+				/>
+			  <set attributeName="opacity"
+				   to="0"
+				   fill="freeze"
+				   begin="zenoSync.begin"
+				   />
+			</rect>
+		  </svg>
+		</div>
+		<p>
+		  The sum is obvious just by taking a piece of paper and arbitrarily
+		  defining it as having a length of <math><mn>2</mn></math> units;
+		  folding it in half and then folding one of those halves in half and
+		  continuously folding as many times as you want each time folding the
+		  half on the end into two more halves. No matter how many folds you can
+		  fit in the strip will still have length two.
+		</p>
+	  </section>
+	  <section>
+		<h3>The better third</h3>
+		<div class="svgLayout">
+		  <svg viewBox="0 0 10 10" preserveAspectRatio="xMidYMid slice">
+			<title>
+			</title>
+			<animate
+			  id="thirdsSync"
+			  attributeName=""
+			  dur="4s"
+			  begin="0s; thirdsSync.end"
+			  />
+			<rect
+			  fill="none"
+			  x="1"
+			  y="4"
+			  width="8"
+			  height="2"
+			  />
+			<line
+			  stroke="tomato"
+			  stroke-width="0.1px"
+			  opacity="0.8"
+			  x1="3.6666667" y1="4"
+			  x2="3.6666667" y2="4"
+			  >
+			  <animate
+				attributeName="y2"
+				from="4"
+				to="6"
+				dur="1s"
+				fill="freeze"
+				begin="thirdsSync.begin"
+				/>
+			</line>
+			<line
+			  stroke="tomato"
+			  stroke-width="0.1px"
+			  opacity="0.8"
+			  x1="6.3333334" y1="6"
+			  x2="6.3333334" y2="6"
+			  >
+			  <animate
+				attributeName="y1"
+				from="6"
+				to="4"
+				dur="1s"
+				fill="freeze"
+				begin="thirdsSync.begin"
+				/>
+			</line>
+		  </svg>
+		</div>
+		<p>
+		  Dividing into thirds is not as easy as halving. While it is possible
+		  to fold something into three by carefully repositioning the two folds
+		  as you fold. It is not nearly as simple as just clamping the ends
+		  together and evening things up.  Luckily there is a away to trisect by
+		  bisecting.
+		</p>
+		<p>
+		  To start you take your very best guess at how long a third is, but no
+		  matter how good your guess,
+		  <math><msub><mi>T</mi><mn>0</mn></msub></math>
+		  , is it is going to be off by a small amount
+		  <math>
+			<mrow>
+			  <mo>|</mo>
+			  <mi>&epsilon;</mi>
+			  <mo>|</mo>
+			</mrow>
+			<mo>&gt</mo>
+			<mn>0</mn>
+		  </math>.
+		  <math display="block">
+			<msub>
+			  <mi>T</mi>
+			  <mn>0</mn>
+			</msub>
+			<mo>=</mo>
+			<mfrac>
+			  <mn>1</mn>
+			  <mn>3</mn>
+			</mfrac>
+			<mo>+</mo>
+			<mi>&epsilon;</mi>
+		  </math>
+		  The bit leftover is then of length
+		  <math display="block">
+			<mfrac>
+			  <mn>2</mn>
+			  <mn>3</mn>
+			</mfrac>
+			<mo>-</mo>
+			<mi>&epsilon;</mi>
+		  </math>
+		  Dividing this in half yields
+		  <math display="block">
+			<msub>
+			  <mi>T</mi>
+			  <mn>1</mn>
+			</msub>
+			<mo>=</mo>
+			<mfrac>
+			  <mn>1</mn>
+			  <mn>3</mn>
+			</mfrac>
+			<mo>-</mo>
+			<mfrac>
+			  <mi>&epsilon;</mi>
+			  <mn>2</mn>
+			</mfrac>
+		  </math>
+		  Through one simple step your error has been halved. And this can be
+		  repeated
+		  <math display="block">
+			<msub>
+			  <mi>T</mi>
+			  <mrow>
+				<mi>n</mi>
+				<mo>+</mo>
+				<mn>1</mn>
+			  </mrow>
+			</msub>
+			<mo>=</mo>
+			<mfrac>
+			  <mn>1</mn>
+			  <mn>3</mn>
+			</mfrac>
+			<mo>&pm;</mo>
+			<mfrac>
+			  <mi>&epsilon;</mi>
+			  <msup>
+				<mn>2</mn>
+				<mi>n</mi>
+			  </msup>
+			</mfrac>
+		  </math>
+		  With the sign determined by whether your number of iterations is even
+		  or odd.  The thing that here matters is that
+		  <math>
+			<mi>&epsilon;</mi>
+			<mo>&rarr;</mo>
+			<mn>0</mn>
+		  </math>
+		  as
+		  <math>
+			<mi>n</mi>
+			<mo>&rarr;</mo>
+			<mi>&infin;</mi>
+		  </math>
+		  .
+		</p>
+		<p>
+		  A natural question would be what other fractions can you find in this
+		  way. With a little thought it should be clear that the algorithm
+		  performed
+		  <math><mi>n</mi></math>
+		  times with
+		  <math><mi>m</mi></math>
+		  repeated bisections of the bit leftover will approach the fraction
+		  <math display="block">
+			<mfrac>
+			  <mn>1</mn>
+			  <mrow>
+				<msup>
+				  <mn>2</mn>
+				  <mi>m</mi>
+				</msup>
+				<mo>+</mo>
+				<mn>1</mn>
+			  </mrow>
+		  </math>
+		  in the limit as
+		  <math><mi>n</mi><mo>&rarr;</mo><mi>&infin;</mi></math>
+		</p>
+	  </section>
 	</article>
   </body>
 </html>
